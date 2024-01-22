@@ -1,7 +1,11 @@
----
-title: "Interpreting, Documenting, and Fixing R Code with ChatGPT"
-author: "Reed Woyda"
----
+
+# "Interpreting, Documenting, and Fixing R Code with ChatGPT"
+
+Reed Woyda
+Microbial Ecosystems Lab 
+Colorado State University
+January 22, 2024
+
 
 ## Learning Objectives
 
