@@ -1,5 +1,5 @@
 
-# "Interpreting, Documenting, and Fixing R Code with ChatGPT"
+# Interpreting, Documenting, and Fixing R Code with ChatGPT
 
 Reed Woyda
 Microbial Ecosystems Lab 
