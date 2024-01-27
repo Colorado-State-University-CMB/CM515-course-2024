@@ -46,7 +46,9 @@ In this first module, we will explore the basics of **R**. What is R?
     * Do I **enjoy** these subjects?
     * Am I **good at** them?
     * Will I **fit in**?
-  * What about the **stories** we absorb from shows and stories? How do these influence whether we feel like this is "our thing" or not?
+  * What about the **stories** we absorb from visual and print media? How do these influence whether we feel like this is "our thing" or not?
+  
+<img src="webContent/MediaDepictions.jpg" width="600" >
   
 
 
