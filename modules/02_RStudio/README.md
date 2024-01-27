@@ -16,6 +16,9 @@ In this first module, we will explore the basics of **R**. What is R?
   * Here, we will just get to know a few basics of interfacing with and using R. 
   * Many people in this class are already familiar with R. There will be additional content for you. 
 
+<img src="webContent/bigstock-background-concept-wordcloud.jpg" width="100" >
+
+
 ## Introductions
 
   * My background & my journey. How did I get here?
@@ -24,11 +27,11 @@ In this first module, we will explore the basics of **R**. What is R?
 
 ## Learning objectives for this module
 
-  * Let's **start fresh** with coding
-  * Students will learn about R: it's **history** and how it is **useful in biological research**
-  * Students will learn how to **interface** with R and RStudio
-  * Students will become familiar with a few basic **R objects** (or extend their knowledge into new objects)
-  * Students will execute a few basic **R functions** (or extend their knowledge into new functions)
+  1. Let's **start fresh** with coding
+  2. Students will learn about R: it's **history** and how it is **useful in biological research**
+  3. Students will learn how to **interface** with R and RStudio
+  4. Students will become familiar with a few basic **R objects** (or extend their knowledge into new objects)
+  5. Students will execute a few basic **R functions** (or extend their knowledge into new functions)
   
 ## Where will you go in the next modules?
   * **Next:** Students will learn to **import and export** data
@@ -38,7 +41,7 @@ In this first module, we will explore the basics of **R**. What is R?
 
 -----
 
-## Let's **start fresh** with coding
+## 1. Let's **start fresh** with coding
 
 *Who is a programmer? Who is a coder? Who is a computational biologist? Who is a bioinformatician? Who is a "geek"? What do these terms even mean?*
 
