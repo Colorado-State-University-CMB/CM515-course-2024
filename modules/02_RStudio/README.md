@@ -1,8 +1,12 @@
 
 
-<img src="webContent/1200px-R_logo.svg.png" width="100" >
+<img  align="center" src="webContent/1200px-R_logo.svg.png" width="200" >
+
+----
 
 # R and RStudio
+
+----
 
 **Instructor:** Erin Osborne Nishimura, PhD
 
@@ -16,7 +20,7 @@ In this first module, we will explore the basics of **R**. What is R?
   * Here, we will just get to know a few basics of interfacing with and using R. 
   * Many people in this class are already familiar with R. There will be additional content for you. 
 
-<img src="webContent/bigstock-background-concept-wordcloud.jpg" width="100" >
+<img  align="center" src="webContent/bigstock-background-concept-wordcloud.jpg" width="800" >
 
 
 ## Introductions
@@ -51,7 +55,7 @@ In this first module, we will explore the basics of **R**. What is R?
     * Will I **fit in**?
   * What about the **stories** we absorb from visual and print media? How do these influence whether we feel like this is "our thing" or not?
   
-<img src="webContent/MediaDepictions.jpg" width="600" >
+<img align="center" src="webContent/MediaDepictions.jpg" width="800" >
   
 
 
