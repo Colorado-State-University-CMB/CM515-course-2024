@@ -60,6 +60,6 @@ In this first module, we will explore the basics of **R**. What is R?
   
 <img align="center" src="webContent/MediaDepictions.jpg" width="800" >
   
-
+Continue on to [R Basics](02_240129_R_Basics.md)
 
 
