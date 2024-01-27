@@ -25,10 +25,10 @@ In this first module, we will explore the basics of **R**. What is R?
 ## Learning objectives for this module
 
   * Let's **start fresh** with coding
-  * Students will learn how and why R is **useful in biological research**
+  * Students will learn about R: it's **history** and how it is **useful in biological research**
   * Students will learn how to **interface** with R and RStudio
-  * Students will become familiar with a few basic **R objects** or extend their knowledge into new objects
-  * Students will execute a few basic **R functions** or extend their knowledge into new functions
+  * Students will become familiar with a few basic **R objects** (or extend their knowledge into new objects)
+  * Students will execute a few basic **R functions** (or extend their knowledge into new functions)
   
 ## Where will you go in the next modules?
   * **Next:** Students will learn to **import and export** data
@@ -40,11 +40,14 @@ In this first module, we will explore the basics of **R**. What is R?
 
 ## Let's **start fresh** with coding
 
-//Who is a programmer? Who is a coder? Who is a computational biologist? Who is a bioinformatician? Who is a "geek"? What do these terms mean?//
+*Who is a programmer? Who is a coder? Who is a computational biologist? Who is a bioinformatician? Who is a "geek"? What do these terms even mean?*
 
-  * How have your past **experiences** in mathematics, coding, or quantitation shaped your notions of it? 
-  * How have your past experiences influenced whether you think you are **good at** it?
-  * How have your past experiences influenced whether you think you **enjoy** it?
-  * What about the **stories** we absorb and hear? How do these influence whether we feel like this is "our thing" or not?
+  * How have my past **experiences** in mathematics, coding, or quantitation shaped how I experience these fields? 
+    * Do I **enjoy** these subjects?
+    * Am I **good at** them?
+    * Will I **fit in**?
+  * What about the **stories** we absorb from shows and stories? How do these influence whether we feel like this is "our thing" or not?
+  
+
 
 
