@@ -26,6 +26,9 @@ In this first module, we will explore the basics of **R**. What is R?
 ## Introductions
 
   * My background & my journey. How did I get here?
+    * [Erin Osborne Nishimura website](https://onishlab.colostate.edu/home-page/erin-osborne-nishimura/)
+    * You can call me "Erin", "Dr. Nishimura"
+    * she/her pronouns
     * Full disclaimer - I do not have a computer science background
   
 
