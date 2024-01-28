@@ -4,7 +4,7 @@
 
 <img src="webContent/Screen Shot RStudio.png" width="700">
 
-RStudio is an **Integrated Development Environment** or **IDE**. An IDE is a software application that allows programmerss to develop software within an organized user space. Think of it as an application that allows us to interact with R, write code, and navigate our file structure. It also has a lot of useful tools at our fingertips - like help info.
+RStudio is an **Integrated Development Environment** or **IDE**. An IDE is a software application that allows programmerss to develop software within an organized user space. In it, we can interact with R, write code, and preview output. 
 
 :white_check_mark: **GRAPHICAL SUMMARY:**
 
@@ -127,21 +127,18 @@ for data analysis. See also ‘citation("pkgname")’ for citing R packages.
 
 ## Interacting with R through a script
 
-:heavy_exclamation_mark: **EXERCISE: Using a script**
 
-_In addition to interacting with R directly on the console, we can also write each of our expressions into a document called a **script**. Doing this will save each line for future use, for posterity. As we write this script, we can send each line to R interactively, one-by-one. Once we are happy with each expression, we can save the script._
+_In addition to interacting with R directly on the console, we can also write each of our expressions into a document called a **script**. Doing this will save each line for future use, for posterity. As we write this script, we can send each line to R interactively, one-by-one. Once we are happy with each expression, we can save the script. Or, we can execute the script all at once._
 
-  * :arrow_right: Save your **Untitled1** document as a script. Go to **File** in the top menu bar. Select **Save**. 
-  * :arrow_right: Navigate or create an appropriate location for your script. Save your script as **230123_Module1_demo.R**.
+
+:heavy_exclamation_mark: **EXERCISE: Start a script**
+
+  * :arrow_right: Go to **File** on the top menu bar
+  * :arrow_right: Go to **New File**
+  * :arrow_right: Select **R Script**
+  * :arrow_right: To save yoru script, select **File** in the top menu bar. Select **Save**. 
+  * :arrow_right: Navigate or create an appropriate location for your script. Save your script as **240129_Module2_demo.R**.
   
-  
-  :heavy_exclamation_mark: **EXERCISE: Exploring RStudio**
-
-  * :arrow_right: Let's start a new script so we can see the text editor.
-    * :arrow_right: Go to **File** on the top menu bar
-    * :arrow_right: Go to **New File**
-    * :arrow_right: Select **R Script**
-
 _Write lines of code in your script._
 
   * :arrow_right: Write the following in your script. Any lines that start with **#** are **comments**. Those will be lines that are for humans to read. R will ignore them. This is how you will write copious notes. Get used to this!
@@ -169,9 +166,20 @@ getwd()
 
 ----
 
-## Homework Assignment 1 - Question 3
+## HOMEWORK QUESTION 2 (5 pts)
 
-Let's move over to the homework assignment and work on Question 1 to reinforce this material.
+:white_check_mark: Students will learn how to interface with R and RStudio
+
+*Let's explore R-studio a little bit by learning about shortcut keys. Try the following and report what happens: (answers in words, phrases, or short sentences)**
+
+A. What happens when you press **Alt+Shift+K** on a PC/Linux or **Option+Shift+K** on a Mac?
+
+B. What happens when you are working on the "Console" and you press the **up arrow**?
+
+C. What happens when you are working on the "Console" and you press **CTRL+L**?
+
+D. What shortcut key helps you escape out of an executed command on the "Console"? For example, try executing a sleep function. This puts R to sleep for 5 minutes. (in other words - What would you press to return to the prompt before 5 minutes is complete?)
+
 
 ▶️ [Homework Assignment 1](Assignment%201.md)
 
