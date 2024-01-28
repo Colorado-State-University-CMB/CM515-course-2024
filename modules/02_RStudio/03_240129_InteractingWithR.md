@@ -20,13 +20,7 @@ RStudio is an **Integrated Development Environment** or **IDE**. An IDE is a sof
   * **Plots panel** - this is where plots and graphics will appear when we generate them.
   * We can toggle through panels behind the Console, Environment, and Plot panels using the tabs at the top of the window.
 
-:heavy_exclamation_mark: **EXERCISE: Exploring RStudio**
-
-  * :arrow_right: Let's start a new script so we can see the text editor.
-    * :arrow_right: Go to **File** on the top menu bar
-    * :arrow_right: Go to **New File**
-    * :arrow_right: Select **R Script**
-
+-----
 
 :warning: **BEST PRACTICES: Closing RStudio**
 
@@ -139,6 +133,14 @@ _In addition to interacting with R directly on the console, we can also write ea
 
   * :arrow_right: Save your **Untitled1** document as a script. Go to **File** in the top menu bar. Select **Save**. 
   * :arrow_right: Navigate or create an appropriate location for your script. Save your script as **230123_Module1_demo.R**.
+  
+  
+  :heavy_exclamation_mark: **EXERCISE: Exploring RStudio**
+
+  * :arrow_right: Let's start a new script so we can see the text editor.
+    * :arrow_right: Go to **File** on the top menu bar
+    * :arrow_right: Go to **New File**
+    * :arrow_right: Select **R Script**
 
 _Write lines of code in your script._
 
