@@ -1,31 +1,32 @@
 -----
 
-# 3. Students will learn how to interface with R and RStudio
+# 3. Let's learn how to interface with R and RStudio
 
 <img src="webContent/Screen Shot RStudio.png" width="700">
 
-RStudio is an **Integrated Development Environment** or **IDE**. An IDE is a software application that allows programmerss to develop software within an organized user space. Think of it as a place where we can interact with R, write code, and have a lot of useful tools at our fingertips.
+RStudio is an **Integrated Development Environment** or **IDE**. An IDE is a software application that allows programmerss to develop software within an organized user space. Think of it as an application that allows us to interact with R, write code, and navigate our file structure. It also has a lot of useful tools at our fingertips - like help info.
+
+:white_check_mark: **GRAPHICAL SUMMARY:**
+
+<img src="webContent/WebContent_Powerpoint_interface.jpg" width="1200">
+
+
+
+  * **Text editor** - The text editor is a panel that allows you to write a script of R commands into a document that can be saved for later, executed one line at a time, or executed all at once.
+  * **Console panel** - this is where R is loaded and ready to go. It shows you the version of R you are running. A prompt, which is denoted by the ">" character shows you that R is ready for your input. This is where we will **interact** with R. More on that later.
+  * **Environment panel** - this is a list that will populate with **objects** as we create them in R. More on objects later. 
+  * **Files panel** - This gives you the ability to browse and interact with the file structure on your own local computer.
+  * **Help panel** - This will pop up with useful help information when you execute the help command. More on that later.
+  * **Plots panel** - this is where plots and graphics will appear when we generate them.
+  * We can toggle through panels behind the Console, Environment, and Plot panels using the tabs at the top of the window.
 
 :heavy_exclamation_mark: **EXERCISE: Exploring RStudio**
 
-  * :arrow_right: Open R Studio. What does it look like?
-  * It has a menu bar on the top and a series of windows.
-  * **Console panel** - this is where R is loaded and ready to go. It shows you the version of R you are running. A prompt, which is denoted by the ">" character shows you that R is ready for your input. This is where we will **interact** with R. More on that later.
-  * **Environment panel** - this is a list that will populate with **objects** as we create them in R. More on objects later. 
-  * **Plots panel** - this is where plots and graphics will appear when we generate them.
-  * _But wait! That's not all. We can toggle through other panels behind the Console, Environment, and Plot panels that are shown as defaults._
-  * **Files panel** - This gives you the ability to browse and interact with the file structure on your own local computer.
-  * **Help panel** - This will pop up with useful help information when you execute the help command. More on that later.
-  * _Finally, there is one panel not shown upon opening RStudio, and that is the Text Editor_
-  * **Text editor** - The text editor is a panel that allows you to write a script of R commands into a document that can be saved for later, executed one line at a time, or executed all at once.
   * :arrow_right: Let's start a new script so we can see the text editor.
     * :arrow_right: Go to **File** on the top menu bar
     * :arrow_right: Go to **New File**
     * :arrow_right: Select **R Script**
 
-:white_check_mark: **GRAPHICAL SUMMARY:**
-
-<img src="webContent/WebContent_Powerpoint_interface.jpg" width="1200">
 
 :warning: **BEST PRACTICES: Closing RStudio**
 
