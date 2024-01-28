@@ -180,7 +180,14 @@ C. What happens when you are working on the "Console" and you press **CTRL+L**?
 
 D. What shortcut key helps you escape out of an executed command on the "Console"? For example, try executing a sleep function. This puts R to sleep for 5 minutes. (in other words - What would you press to return to the prompt before 5 minutes is complete?)
 
+```r
+Sys.sleep(5)
+```
 
-▶️ [Homework Assignment 1](Assignment%201.md)
+[Module 2 Homework](Module2_homework.md)
+
+Continue on to [4 R Objects](04_RObjects.md)
+
+
 
 ----
