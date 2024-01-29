@@ -347,13 +347,43 @@ help(nrow)
 
 ----
 
-## Homework Assignment 1 - Question 3
+## QUESTION 4 (5 pts) 
 
-Let's move over to the homework assignment and work on Question 3 to reinforce this material.
+:white_check_mark: Students will become familiar with a few basic R objects - data frames
 
-▶️ [Homework Assignment 1](Assignment%201.md)
+:white_check_mark: Students will execute a few basic R functions
+
+Heather has written some code to create a data frame with columns for "languages", "greetings", and "partings". Each line of her code except the last line has a bug, or error. Can you de-bug Heather's code? Submit the re-written code.
+
+
+```
+# Heather's code:
+languages <- ("English", "Spanish", "Japanese", "French")
+_greetings_ <- c("hello", "hola", "ohio", "bonjour")
+partings < c("bye", "adios", "mata", "salut")
+dictionary <- DataFrame(languages, _greetings_, partings)
+dimens(dictionary)
+dictionary
+
+```
+
+*Hint: The final line of code should give you the following output:*
+
+```
+  languages greetings partings
+1   English     hello      bye
+2   Spanish      hola    adios
+3  Japanese      ohio     mata
+4    French   bonjour    salut
+```
+
+Turn in the amended code block.
+
+[Module 2 Homework](Module2_homework.md)
 
 ----
+
+
 
 
 ▶️ [Part 3 - Plotting](230125_03_R_Plotting.md)
