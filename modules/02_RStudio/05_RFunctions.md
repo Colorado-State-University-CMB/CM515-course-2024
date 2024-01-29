@@ -66,7 +66,7 @@ The `help()` function gives us information about how a function operates. The he
 help(dim)
 ```
 
-  * The `x` in the example tells you that this function takes an argument. If we read under **ARGUMENTS** we can learn whith object classes are allowed.
+  * The `x` in the example tells you that this function takes an argument. If we read under **ARGUMENTS** we can learn which object classes are allowed.
 
 ➡️ Let's look at the help menu for `mean`.
 
@@ -85,4 +85,6 @@ mean(chromosomes, trim = 0.2)
 ⚠️ **GRAPHICAL SUMMARY** 
 
 <img src="webContent/WebContent_Powerpoint_functionGrammar.jpg" width="600">
+
+Continue on to [Importing and Exporting Data](06_ImportExport.md)
 
