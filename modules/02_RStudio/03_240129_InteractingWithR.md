@@ -151,9 +151,12 @@ date()
 getwd()
 
 ```
-  * :arrow_right: Execute the first line of the script by placing your cursor somewhere within the line `print("Hello World") and then clicking on the **Run** icon that contains a right-pointed arrow.
-  * :arrow_right: Alternatively, we can use short cut keys. To do this, place your cursor somewhere within the line `date()` and hit **COMMAND** + **RETURN**
-  * :arrow_right: We can execute multiple lines in succession by highlighting them together. Highlight the entire script from # to `getwd()`. Now, either click **Run** or use the shortcut to execute.
+  * :arrow_right: **You can execute your code in a few ways:**
+    * Line-by-Line: Place your cursor somewhere within the line `print("Hello World")`
+      * Either click the **Run** icon that contains a right-pointed arrow.
+      * OR Use short cut keys: **COMMAND** + **RETURN**
+    * Multiple Lines: Highlight multiples lines.
+      * Either click **Run** OR use the shortcut to execute.
 
 ---- 
 
