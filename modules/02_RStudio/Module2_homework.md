@@ -122,17 +122,14 @@ Let's practice importing some data. Here is a real supplementary dataset that my
 :white_check_mark: Students are encouraged to cultivate their own personal curiosity in R, data science, and programming. Feel free to turn in any of these answers in lieu of Question 1 - 5 if you are experienced user.
 
   1. Explore the R Cheatsheet
-  
     * What is a function or object you haven't used before? Explore it. Write down what you tried and how it works. Submit code showing what you have done.
     
   2. Explore new graph options
-  
     * Go to the [R Graph Gallery](https://www.r-graph-gallery.com/index.html). Choose a category of R plots that you would like to learn more about. Using the R Graph Gallery pages, wikipedia, and other internet resources, learn how these plots generate their data. Think about which plots you might use in your own research. 
     * Next, read through some of the R code in the Gallery associated with each plot. Even if you don't understand the R code, just give it a try. Notice the difference between reading the comments versus the code.
     * Write down the type of plot you explored and describe how you would like to use it in your work.
 
   3. Explore [Our World In Data](https://ourworldindata.org/).
-  
     * Click on **Articles By Topic** to activate a pull down menu to explore. You can download any dataset you want. 
     * For example, if you go to [Internet access per country over time](https://ourworldindata.org/internet#internet-access), you can see different plots like so...
 
