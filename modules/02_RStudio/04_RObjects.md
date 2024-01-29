@@ -7,7 +7,7 @@
   * [The basic syntax of R expressions](#the-basic-syntax-of-r-expressions)
   * [Vector Objects](#vector-objects)
   * [Data Frame Objects](#data-frame-objects)
-  * [BONUS CONTENT FOR ADVANCED USERS ON OTHER OBJECTS]()
+  * [BONUS CONTENT FOR ADVANCED USERS](Module2_homework.md#bonus-content)
 
 
 ## Learning Goals 

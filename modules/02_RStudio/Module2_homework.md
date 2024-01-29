@@ -6,7 +6,7 @@
   * Please turn in the answers to this assignment as a .txt document. To create a .txt document in R, go to **New File**, then select **Text file**. You can use any other text editor if you like. Please do not use Mac's Text Edit application, though.
   * DO NOT include the questions in the document you turn in. Answers only!
   * TURN in your assignment on canvas
-  * If you are already versed in R, please feel free to substitute out any questions with the BONUS Questions at the end of this document. 
+  * If you are already versed in R, please feel free to substitute out any questions with the [BONUS Content](#bonus-content) at the end of this document. 
   
 :white_check_mark: These are the learning objectives associated with each question
 
@@ -117,7 +117,7 @@ Let's practice importing some data. Here is a real supplementary dataset that my
 
 -----
 
-## Bonus content
+# Bonus content
 
 :white_check_mark: Students are encouraged to cultivate their own personal curiosity in R, data science, and programming. Feel free to turn in any of these answers in lieu of Question 1 - 5 if you are experienced user.
 
