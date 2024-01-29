@@ -1,5 +1,19 @@
 # 5. Let's talk about R functions
 
+## Reviewing the learning objectives for this module
+
+  1. Let's **start fresh** with coding
+  2. Students will learn about R: it's **history** and how it is **useful in biological research**
+  3. Students will learn how to **interface** with R and RStudio
+  4. Students will become familiar with a few basic **R objects** (or extend their knowledge into new objects)
+  5. Students will execute a few basic **R functions** (or extend their knowledge into new functions)
+    
+## Maybe in this module or next ones:
+  * **Next:** Students will learn to **import and export** data
+  * **Next:** Students will learn to extend functionality of R by loading **packages**
+  * **Next:** Students will gain experience in basic **plotting**
+
+
 ## Useful references
 
  * [Base R cheat sheet](https://iqss.github.io/dss-workshops/R/Rintro/base-r-cheat-sheet.pdf)
