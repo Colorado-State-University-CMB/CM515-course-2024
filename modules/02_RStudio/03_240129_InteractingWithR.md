@@ -186,7 +186,7 @@ Sys.sleep(5)
 
 [Module 2 Homework](Module2_homework.md)
 
-Continue on to [4 R Objects](04_RObjects.md)
+Continue on to [R Objects](04_RObjects.md)
 
 
 

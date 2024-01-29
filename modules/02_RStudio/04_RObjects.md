@@ -24,7 +24,7 @@
 
 # The basic syntax of R expressions
 
-R is a language. The expressions we write on each line of R have their own internal logic. At a fundamental level, expressions are comprised of **functions** and **objects**.
+R is a language. The expressions we write on each line of R have their own internal logic. At a fundamental level, expressions are comprised of **objects** and **functions**.
 
 <img src="webContent/WebContent_Powerpoint_functions_objects.jpg" width="600">
 
@@ -37,8 +37,6 @@ The functions will operate on the objects. Some functions are restricted in whic
 ## Assignment
 
 **Assignment** is the process of linking an object's **value** to its **name**. We've already seen this:
-
-:point_right: For the next examples, let's start a new script to work in. Call it 230125_demonstration.R and save it to the same location as Monday's script. 
 
 :point_right: Type the examples below into your script document.
 

@@ -40,7 +40,7 @@ In this first module, we will explore the basics of **R**. What is R?
   4. Students will become familiar with a few basic **R objects** (or extend their knowledge into new objects)
   5. Students will execute a few basic **R functions** (or extend their knowledge into new functions)
   
-## Where will you go in the next modules?
+## Maybe in this module or next ones:
   * **Next:** Students will learn to **import and export** data
   * **Next:** Students will learn to extend functionality of R by loading **packages**
   * **Next:** Students will gain experience in basic **plotting**
