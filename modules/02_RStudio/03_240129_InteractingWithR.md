@@ -152,11 +152,11 @@ getwd()
 
 ```
   * :arrow_right: **You can execute your code in a few ways:**
-    * Line-by-Line: Place your cursor somewhere within the line `print("Hello World")`
+    * **Line-by-Line:** Place your cursor somewhere within the line `print("Hello World")`
       * Either click the **Run** icon that contains a right-pointed arrow.
-      * OR Use short cut keys: **COMMAND** + **RETURN**
-    * Multiple Lines: Highlight multiples lines.
-      * Either click **Run** OR use the shortcut to execute.
+      * OR use short cut keys: **COMMAND** + **RETURN** (Mac) or **ALT** + **ENTER** (PC) 
+  * **Multiple Lines:** Highlight multiples lines.
+      * Either click **Run** OR use the short cut keys to execute.
 
 ---- 
 
@@ -186,6 +186,7 @@ D. What shortcut key helps you escape out of an executed command on the "Console
 ```r
 Sys.sleep(5)
 ```
+
 
 [Module 2 Homework](Module2_homework.md)
 
