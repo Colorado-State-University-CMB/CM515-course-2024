@@ -200,11 +200,31 @@ Possible factor conversions. One can move down this table without losing informa
 
 <img src="webContent/Screen Shot 2022-01-24 at 6.04.25 AM.png" width="400" >
 
-## Homework Assignment 1 - Question 2
+## HOMEWORK QUESTION 3 (5 pts) 
 
-Let's move over to the homework assignment and work on Question 2 to reinforce this material.
+:white_check_mark: Students will become familiar with a few basic R objects - vectors
 
-▶️ [Homework Assignment 1](Assignment%201.md)
+:white_check_mark: Students will execute a few basic R functions
+
+*We learned that vectors come in different classes depending on the data type they house. Answer the following in phrases or sentences.*
+
+A. What are the classes of each of these vectors? 
+```r
+users <- c("alvin", "viet", "leila")
+logins <- c(12, 5, 34)
+```
+
+B. If we merge these vectors together into super_vector by concatenating them together (below), what is the class of super\_vector? Why do you think this happened?
+
+```r
+super_vector <- c(users, logins)
+```
+
+C. How would you force super\_vector into a numeric sub-class? *write the line of code* What happens? *copy the output and write a sentence explanation*
+
+
+
+[Module 2 Homework](Module2_homework.md)
 
 -----
 
