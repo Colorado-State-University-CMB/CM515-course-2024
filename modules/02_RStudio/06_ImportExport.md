@@ -279,7 +279,12 @@ dev.off()
 
 ```
 
+  * By default, your plot will save to the working directory. 
+  * .pdf output can be modified as a vector graphic in Adobe Illustrator
+  * Some text doesn't render properly - you'll need to edit plots
 
+Continue on to [Installing Packages](07_install.md)
+  
 
 
 
