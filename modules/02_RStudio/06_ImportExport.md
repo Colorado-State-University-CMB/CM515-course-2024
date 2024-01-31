@@ -204,15 +204,37 @@ Well, let's  make one first...
 
 ➡️ A simple plot
 
-**X Y SCATTER PLOT** The function `plot()` uses the following syntax to plot x and y values into a scatter plot:
+**X Y SCATTER PLOT** The function `plot()` uses the following syntax to plot x and y values into a scatter plot. It uses two vector objects as input: 
 
 <img src="webContent/WebContent_Powerpoint_plotting.jpg" width="800">
 
 The result looks like this:
 
-It will generate something like this...
-
 <img src="webContent/Rplot.jpeg" width="500">
+
+➡️ Let's try it! Say we want to see whether there is a relationship between the overall vaccination rates and the booster rates for different states. From first principles, we would predict that states with overall high vaccination rates also likely had high booster rates and vice versa. However, there may be interesting places where the initial rates of vaccination were high, but then the population did not boost at high levels. It would be interesting to find those states/territories.
+
+```r
+# We can use integer or numeric or integer classes as input
+str(VaxByState)
+
+# Use colnames to see the options for data we have available:
+colnames(VaxByState)
+
+# We'll use these x-values...
+xVacc <- VaxByState$people_vaccinated_per_hundred
+
+# ... and these y-values:
+yBoost <- VaxByState$total_boosters_per_hundred
+
+# Let's plot it!
+plot(xVacc, yBoost)
+
+# Let's add some labels
+text(xVacc, yBoost, rownames(VaxByState),col='darkblue', pos = 4, cex = 0.8)
+```
+
+<img src="webContent/Screen Shot 2023-01-25 at 8.53.36 AM.png" width="500">
 
 
 
