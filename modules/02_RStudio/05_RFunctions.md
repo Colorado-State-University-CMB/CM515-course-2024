@@ -98,6 +98,36 @@ When we look up the help page for **mean**, one thing we encounter is...
 
 <img src="webContent/Screen Shot 2024-01-30 at 7.11.00 PM.png" width="800">
 
+  * **NA**, or Not Available, should be written in place of any **missing values**
+  * **NaN**, or Not a Number, should be written in place of any **impossible numbers**. For example, a number divided by 0.
+
+What happens if we try to take the mean of a vector that has an NA in the list? 
+
+➡️ Let's try it:
+
+```
+# create a vector with an NA in it:
+incompleteVector <- c(2, 5, 8, 9, 10, 200, NA, 3)
+mean(incompleteVector)
+[1] NA
+
+```
+
+hmmm... Looks like it won't let me. This is where **na.rm** comes in. It mean **NA Remove** and by setting it to TRUE, you can override the behavior by removing all the NAs first, and then taking the mean on the remaining values second.
+
+➡️ Try na.rm
+
+```
+mean(incompleteVector, na.rm = TRUE)
+
+```
+
+**REVIEW**
+
+  * R functions have parentheses
+  * Sometimes nothing goes in them
+  * Arguments - these are objects that your function operates
+  * Options - these are things written in parenthesis to change how your function works. Without them, the function will work in a default mode. With them, you can customize how the function operates.
 
 
 Continue on to [Importing and Exporting Data](06_ImportExport.md)
