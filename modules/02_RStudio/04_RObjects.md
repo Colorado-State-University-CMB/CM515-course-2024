@@ -277,9 +277,9 @@ Notice how `dim` shows you the dimensions of the object model_systems.
 
 ## Data frame indexing
 
-  * **Recall** - Again, we can recall the values within the data frame object by simply typing its name. 
+  * **Recollection** - Again, we can recall the values within the data frame object by simply typing its name.
   * **Big data** - Sometimes, these data frames get really huge. In these cases, only the top bit of the data frame is shown. 
-  * **Head** - In other cases, we can force only the very top of a data frame to be displayed using `head()`:
+  * **Head** - We can force only the very top of a data frame to be displayed using `head()`:
 
 ```r
 head(model_systems)
@@ -347,14 +347,13 @@ help(nrow)
 
 ----
 
-## QUESTION 4 (5 pts) 
+## HOMEWORK QUESTION 4 (5 pts) 
 
 :white_check_mark: Students will become familiar with a few basic R objects - data frames
 
 :white_check_mark: Students will execute a few basic R functions
 
 Heather has written some code to create a data frame with columns for "languages", "greetings", and "partings". Each line of her code except the last line has a bug, or error. Can you de-bug Heather's code? Submit the re-written code.
-
 
 ```
 # Heather's code:
