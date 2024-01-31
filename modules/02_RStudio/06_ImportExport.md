@@ -243,7 +243,9 @@ To save it, you have two options...
 
 ## Saving plots
 
-To save a plot, we can simply use the **Export** menu item on the top of the Plots panel. 
+To save a plot, we have two options:
+
+  1. We can simply use the **Export** menu item on the top of the Plots panel. 
 
 ➡️ Export your plot as a .pdf...
 
@@ -253,7 +255,31 @@ To save a plot, we can simply use the **Export** menu item on the top of the Plo
 
 <img src="webContent/Screen Shot 2023-01-25 at 8.48.40 AM.png" width="500">
 
-----
+  2. We can use commands. 
+  
+Place the plotting commands between the `pdf()` command and the `dev.off()` command. 
+
+  * `pdf()` will start "recording" what you plot into a specified file of specified dimensions.
+  * `dev.off()` will "stop recording".
+  * Sometimes we do need two dev.off() calls to return to the Rstudio plot output
+  
+➡️ Example: 
+
+```r
+
+pdf(file = "240131_Rplot_vacc.pdf", width = 8, height = 8 )
+
+# Let's plot it!
+plot(xVacc, yBoost)
+
+# Let's add some labels
+text(xVacc, yBoost, rownames(VaxByState),col='darkblue', pos = 4, cex = 0.8)
+
+dev.off()
+
+```
+
+
 
 
 
