@@ -12,10 +12,12 @@ First, let's download a dataset to import.
 
 ❗**EXERCISE** Download a data file
 
-  * Go to [US_COVID_Vacc_by_StateTerr.csv](https://drive.google.com/file/d/1_0z0Bi3cg5GjWpz6FV23NMFw8V0kzQm_/view?usp=sharing)
+  * ➡️ Right click here:  [US_COVID_Vacc_by_StateTerr.csv](https://drive.google.com/file/d/1_0z0Bi3cg5GjWpz6FV23NMFw8V0kzQm_/view?usp=sharing)
   * ➡️ Download the file by clicking the down arrow in the top right set of icons.
-  * ➡️ Save the file somewhere in your Documents directory/folder that makes sense. Consider adding it to your folder called "CM515" that contains this code. 
+  * ➡️ Save the file somewhere in your Documents directory/folder that makes sense. Consider adding it to a folder called "CM515". 
   * ➡️ Ensure the file name saved is "US_COVID_Vacc_by_StateTerr.csv" by viewing it in Finder or explorer.
+  
+❗ Take a little time here to ensure you know where the file is. 
 
 ### Importing Data - Setting the working directory
 
