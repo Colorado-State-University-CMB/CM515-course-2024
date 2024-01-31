@@ -215,6 +215,7 @@ The result looks like this:
 ➡️ Let's try it! Say we want to see whether there is a relationship between the overall vaccination rates and the booster rates for different states. From first principles, we would predict that states with overall high vaccination rates also likely had high booster rates and vice versa. However, there may be interesting places where the initial rates of vaccination were high, but then the population did not boost at high levels. It would be interesting to find those states/territories.
 
 ```r
+
 # We can use integer or numeric or integer classes as input
 str(VaxByState)
 
@@ -236,6 +237,23 @@ text(xVacc, yBoost, rownames(VaxByState),col='darkblue', pos = 4, cex = 0.8)
 
 <img src="webContent/240131_firstPlot.jpeg" width="500">
 
+OK, cool! Not the world's most beautiful plot, but good enough to demonstrate how we would save it. 
+
+To save it, you have two options...
+
+## Saving plots
+
+To save a plot, we can simply use the **Export** menu item on the top of the Plots panel. 
+
+➡️ Export your plot as a .pdf...
+
+<img src="webContent/Screen Shot 2023-01-25 at 8.48.24 AM.png" width="500">
+
+➡️ Specify the width and height of the output image. Give it a name. Save it in a location that makes sense. You may need to play around with the width/height until the plot looks nice...
+
+<img src="webContent/Screen Shot 2023-01-25 at 8.48.40 AM.png" width="500">
+
+----
 
 
 
