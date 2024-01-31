@@ -160,7 +160,13 @@ help(write.table)
 
 ```
 
+----
+
+
 <img src="webContent/Screen Shot 2024-01-31 at 8.45.03 AM.png" width="600">
+
+----
+
 
 ➡️ Let's export using `write.table()`
 
@@ -186,9 +192,25 @@ write.table(VaxByState_summary, file = "Vaccinations_by_state_SUMMARY.txt", quot
 
 ⚠️ **WARNING** Excel will automatically switch gene names to dates (ie: jun-1, oct-4). Use the **import** function in excel to specify the data type of each column to avoid this behavior.
 
+  * **BONUS** - To export a vector object, use `write()` 
+
 ----
 
-
 # Exporting Plots out of R
+
+Now that we know how to export a data table, how would we export a plot?
+
+Well, let's  make one first...
+
+➡️ A simple plot
+
+We can make a simple plot using `plot(x,y)`
+
+It will generate something like this...
+
+<img src="webContent/Rplot.jpeg" width="500">
+
+
+
 
 
