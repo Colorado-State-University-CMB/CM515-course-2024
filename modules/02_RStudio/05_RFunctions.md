@@ -119,6 +119,7 @@ hmmm... Looks like it won't let me. This is where **na.rm** comes in. It mean **
 
 ```
 mean(incompleteVector, na.rm = TRUE)
+[1] 33.85714
 
 ```
 
