@@ -166,8 +166,29 @@ help(write.table)
 
 ```r
 
-
+write.table(VaxByState_summary, file = "Vaccinations_by_state_SUMMARY.txt", sep = "\t")
 
 ```
+
+  * By default, R will export this table to your working directory.
+  * Switch to your finder or explorer and open the file using a text editor
+  * Yikes - I'm not loving those quotes. Let's return to the help page and see if we can change that...
+
+```r
+
+write.table(VaxByState_summary, file = "Vaccinations_by_state_SUMMARY.txt", quote = FALSE, sep = "\t")
+
+```
+
+  * HOORAY! The help page really helped. We were able to find an option that met our needs.
+  
+⚠️ **WARNING** If you open this in excel, the column names will be off-set so that "date" will be the column name for "state"
+
+⚠️ **WARNING** Excel will automatically switch gene names to dates (ie: jun-1, oct-4). Use the **import** function in excel to specify the data type of each column to avoid this behavior.
+
+----
+
+
+# Exporting Plots out of R
 
 
