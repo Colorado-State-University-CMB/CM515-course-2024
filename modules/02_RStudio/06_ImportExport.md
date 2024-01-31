@@ -204,7 +204,11 @@ Well, let's  make one first...
 
 ➡️ A simple plot
 
-We can make a simple plot using `plot(x,y)`
+**X Y SCATTER PLOT** The function `plot()` uses the following syntax to plot x and y values into a scatter plot:
+
+<img src="webContent/WebContent_Powerpoint_plotting.jpg" width="800">
+
+The result looks like this:
 
 It will generate something like this...
 
