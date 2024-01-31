@@ -283,7 +283,7 @@ dev.off()
   * .pdf output can be modified as a vector graphic in Adobe Illustrator
   * Some text doesn't render properly - you'll need to edit plots
 
-Continue on to [Installing Packages](07_install.md)
+Continue on to [Installing Packages](07_Install.md)
   
 
 
