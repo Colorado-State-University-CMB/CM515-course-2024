@@ -42,10 +42,9 @@ The output is listed as a path. Notice how the output to getwd() matches with th
 :heavy_exclamation_mark: PC tip: If you don't see your path in the Explorer, follow [these directions](https://pureinfotech.com/show-full-path-file-explorer-windows-10/)
 
 
+## Setting the working directory
 
-❗**EXERCISE** Setting the working directory
-
-To import a file, we need to set R's working directory to match the directory where our file lives.
+❗**EXERCISE** We need to set R's working directory to match the directory where our file lives.
 
   * ➡️ Go to the **Files** Panel of RStudio.
   * ➡️ Navigate to the location containing the downloaded dataset (may take some sleuthing)
@@ -74,11 +73,13 @@ read.table("US_COVID_Vacc_by_StateTerr.csv", sep = ",", header = TRUE, row.names
 # That only printed out the data from the file, it didn't capture it.
 # To capture the data, use an assignment expression:
 VaxByState <- read.table("US_COVID_Vacc_by_StateTerr.csv", sep = ",", header = TRUE, row.names = "location")
+```
+
 
 :+1: Use help(read.table) to learn how you can also use read.csv or read.csv2 to upload comma separated content, also! There are many ways to do the same thing in R.
 
 
-```
+
 
 ## Importing Data - EDA (Exploratory Data Analysis)
 
