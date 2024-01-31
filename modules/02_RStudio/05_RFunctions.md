@@ -126,9 +126,9 @@ mean(incompleteVector, na.rm = TRUE)
 **REVIEW**
 
   * R functions have parentheses
-  * Sometimes nothing goes in them
-  * Arguments - these are objects that your function operates
-  * Options - these are things written in parenthesis to change how your function works. Without them, the function will work in a default mode. With them, you can customize how the function operates.
+  * Sometimes nothing goes in them: `function()`
+  * **Arguments:** `function(argument)` - your function will take an argument as input
+  * **Options:** `function(argument, option1 = TRUE, option2 = 100)` -  You can customize how the function operates by adding optional information. 
 
 
 Continue on to [Importing and Exporting Data](06_ImportExport.md)
