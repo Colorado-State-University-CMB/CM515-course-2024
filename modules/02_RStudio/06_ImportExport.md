@@ -58,6 +58,7 @@ The output is listed as a path. Notice how the output to getwd() matches with th
 We will use the command `read.table()` to import the dataset
 
 ```r
+
 # Check we're in the right place
 getwd() 
 
@@ -73,11 +74,13 @@ read.table("US_COVID_Vacc_by_StateTerr.csv", sep = ",", header = TRUE, row.names
 # That only printed out the data from the file, it didn't capture it.
 # To capture the data, use an assignment expression:
 VaxByState <- read.table("US_COVID_Vacc_by_StateTerr.csv", sep = ",", header = TRUE, row.names = "location")
+
 ```
 
 
-:+1: Use help(read.table) to learn how you can also use read.csv or read.csv2 to upload comma separated content, also! There are many ways to do the same thing in R.
+:+1: Use help(read.table) to learn how you can also use `read.csv` or `read.csv2` to upload comma separated content, also! There are many ways to do the same thing in R.
 
+  * There are many ways to do the same task - this is going to be a theme. 
 
 
 
@@ -88,9 +91,11 @@ VaxByState <- read.table("US_COVID_Vacc_by_StateTerr.csv", sep = ",", header = T
 ➡️ Look at what you have acquired and make sure everything looks good!
 
 ```r
+
 dim(VaxByState)
 str(VaxByState)
 class(VaxByState)
+
 ```
 
 ## Obtaining, Cleaning, Wrangling, & Munging
@@ -109,7 +114,60 @@ I had to clean up this data quite a bit to make the neat and tidy file you just 
   * removed superfluous columns
   * re-arranged the columns
   * removed data for US federal prisons, Defense Dept., and Veteran's hospitals because some of their data was missing.
+  
+## Review of importing data. 
+
+Just to review, here are the basic steps of importing data...
+
+  1. Obtain the data - download it, collect it, etc.
+  2. Clean the data (I did this step for you)
+  3. Set the working directory
+  4. Use `read.table`, `read.csv` or some other function to import the data
+  5. Exploratory Data Analysis (EDA)
+  
+----
+
 
 # Exporting Data out of R
+
+Next, I'll show you how to save data and plots we generate in R so they can be shared or published in reports, presentations, or publications.
+
+  
+⚠️ **BEST PRACTICES** Always include raw data tables as supplemental data when you publish a paper. Also, don't forget to acknowledge R, any packages, and note their versions in the materials & methods.
+
+
+  * First, let's say we want to filter down this Vaccination data to just 3 columns: the "date"", the "people_fully_vaccinated_per_hundred", and "total_boosters_per_hundred" . So, this'll be a little summary. Next, let's export this data frame into a tab-delimited text file. 
+
+  * Which columns are which?
+
+➡️ Follow along:
+
+```r
+
+# Look at the column names
+colnames(VaxByState)
+
+# It looks like we want columns 1, 5, & 11
+
+# Let's subset the data to create a new object called 
+VaxByState_summary <- VaxByState[ , c(1,5,11)]
+
+dim(VaxByState_summary)
+head(VaxByState_summary)
+
+# Now, let's explore the function write.table() 
+help(write.table)
+
+```
+
+<img src="webContent/Screen Shot 2024-01-31 at 8.45.03 AM.png" width="600">
+
+➡️ Let's export using `write.table()`
+
+```r
+
+
+
+```
 
 
