@@ -234,7 +234,7 @@ plot(xVacc, yBoost)
 text(xVacc, yBoost, rownames(VaxByState),col='darkblue', pos = 4, cex = 0.8)
 ```
 
-<img src="webContent/Screen Shot 2023-01-25 at 8.53.36 AM.png" width="500">
+<img src="webContent/240131_firstPlot.jpeg" width="500">
 
 
 
