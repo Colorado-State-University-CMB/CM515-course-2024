@@ -96,7 +96,7 @@ mean(chromosomes, trim = 0.2)
 
 When we look up the help page for **mean**, one thing we encounter is...
 
-<img src="webContent/Screen Shot 2024-01-30 at 7.11.00 PM.png" width="600">
+<img src="webContent/Screen Shot 2024-01-30 at 7.11.00 PM.png" width="800">
 
 
 
