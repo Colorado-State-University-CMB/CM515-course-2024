@@ -74,17 +74,31 @@ help(dim)
 help(mean)
 ```
 
-This help menu also specifies the **options** that the mean function takes and their **default** values. As a default, trim is set to 0. In other words, all the values are used to calculate the mean. However, this value can be changed to 0.2, in which case, the most extreme 20 % of all datapoints will be removed before the mean is calculated. 
+This help menu also specifies the **options** that the mean function takes and their **default** values. As a default, **trim** is set to 0 and **na.rm** is set to **FALSE**. In other words, all the values are used to calculate the mean. However, this value can be changed to 0.2, in which case, the most extreme 20 % of all datapoints will be removed before the mean is calculated. 
 
-➡️ Give it a try:
-
-```r
-mean(chromosomes, trim = 0.2)
-```
 
 ⚠️ **GRAPHICAL SUMMARY** 
 
 <img src="webContent/WebContent_Powerpoint_functionGrammar.jpg" width="600">
+
+
+➡️ Give it a try:
+
+```r
+# Take the average # of chromosomes
+mean(chromosomes)
+
+# Take the average # of chromosomes of 80 % of the data
+mean(chromosomes, trim = 0.2)
+```
+
+### What does na.rm mean?
+
+When we look up the help page for **mean**, one thing we encounter is...
+
+<img src="webContent/Screen Shot 2024-01-30 at 7.11.00 PM.jpg" width="600">
+
+
 
 Continue on to [Importing and Exporting Data](06_ImportExport.md)
 
