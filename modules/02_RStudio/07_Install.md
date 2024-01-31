@@ -34,5 +34,8 @@ filled.contour(cos(r^2)*exp(-r/(2*pi)),
                asp=1)
 
 ```
+<img src="webContent/Screen Shot 2024-01-31 at 9.35.23 AM.png" width="500">
+
+
 
 [More info on viridis](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html#gallery)
