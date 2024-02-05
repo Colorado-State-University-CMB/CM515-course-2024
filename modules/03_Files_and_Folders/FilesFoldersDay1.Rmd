@@ -1,0 +1,279 @@
+---
+title: "Files-and-Folders-Day1"
+author: "Shady Kuster"
+date: "2024-02-05"
+output: pdf_document
+---
+
+
+use the dir_tree() FUNCTION TO SHOW THE DIRECTORY TREE STRUCTURE TO PROVIDE VISUALIZATION
+THERE ARE OTHER FUNCTIONS IN THE LIB THAT YOU CAN USE
+
+maybe start w/ having everyone work in their Documents dir,
+finding what the absolute path to that is, and doing stuff there
+
+then, either late M or on W, have them work with lots of other dir structures
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+#knitr::opts_knit$set(root.dir = '/Documents') #this is for a later section. do not uncomment this
+
+#install.packages("stringr") 
+#install.packages("fs") #uncomment this & run it if the library() function below doesn't work
+library(stringr)
+library(fs)
+```
+
+## Welcome to bioinformatics! 
+
+I have written this R Markdown document to help you understand some of the nuances of working with computers and make you more comfortable communicating with them.
+
+Computers always do exactly what you tell them, so we have to learn how to properly communicate with them :)
+
+As a note: Windows and Macs have different file structures and some nuances. I have made notes anytime these differences are pertinent. I am working on a Mac, so my file structure might be a bit different from Windows users. 
+
+```{r, echo = F}
+#This is a code chunk. If you press the play button (green right-facing triangle on the previous line), it will run the code in this chunk
+
+print("Hello from what we call standard output! This message will show up below this code chunk.")
+
+
+#ignore the following for now
+message <- "Hello from inside your text file!"
+
+error <- "This\nis\na\ntext\tfile\n.\n\n\nBut there\n are lots of\nlines."
+printer <- "/warmer/hotter/Help.txt"
+
+```
+
+
+
+
+## Working what??
+**directory**: computer talk for folder
+
+**current working directory (cwd)**: the directory in which you are running your script or referencing in your script
+
+In this chunk, you'll learn about the working directory. If you think of a series of folders (we call them directories because we're nerds) in your file explorer/Finder, the current working directory (abbreviated as cwd) is the folder you have open. You can see the documents in that folder and that folder only. 
+
+Your cwd is which folder you tell your computer to look into. It can only access the files in that folder, so if your code references other files (such as inputs), your cwd needs to be the same directory in which those files are found. 
+
+The command getwd() will tell you what your cwd is. Run the chunk to see. Note that the default working directory is where your script is stored. 
+
+
+```{r}
+#run to see your cwd
+getwd()
+
+
+```
+
+Find this directory (remember that means folder) on your computer. If you would rather be somewhere else, you'll need to change your cwd. For example, my cwd is "/Users/kusters". If I want to instead be in my Documents directory (which is a folder in my kusters directory), I would run the following code:
+
+setwd("Documents")
+
+Notice two things here:
+
+1. The words inside of the double quotes are what we call a *path*. It is a list of directories delimited by a forward slash, "/". You can think of this as an address or a set of instructions telling your computer how to get to the file or folder you're referencing. Here, I only have one directory
+
+2. The path is found inside double quotes. The quotes tell the computer that the contents are a string and should not be read as normal coding language. A path must always be a string in order to be read correctly (just try removing the quotes from the setwd() function)
+
+Use the code chunk below to change your cwd to your Documents directory. Make sure to put the path into the quotes.
+
+
+
+```{r}
+#remove the # symbol before the function, fill in the double quotes with your desired path, and run this code chunk
+#setwd("")
+
+#also add your path here, for later use:
+docDir <- ""
+
+```
+
+*Lesson 1 with computers:* Computers are case sensitive and will not know that when you write documents you actually mean Documents
+
+
+
+# Specifics on path
+**path:** a list of directories that tell your computer where to look for a file or directory
+
+**absolute path:** a path that includes all directories between your home directory and your desired directory
+
+**relative path:** a path that only includes directories relative to your current working directory
+
+Often, we do not want to write a full path from our home directory to where we would like to be working or referencing, so we use a relative path instead. Imagine I have three folders in my Documents folder:
+
+1) "courses" which has three subdirectories: "cell bio", "calculus", and "genetics". 
+
+2) "Vacation" which has a file called "itinerary.txt"
+
+3) "research" which is empty
+
+The absolute path for my calculus directory would be "/Users/kusters/Documents/courses/calculus".
+
+Remember that my cwd is my Documents directory. So the path for my calculus directory *relative* to my cwd would be "courses/calculus". 
+
+This is because the calculus directory is within the courses directory, and I am currently in the Documents directory. Using "calculus" would not work here. Both Documents and calculus share "/Users/kusters", so I don't need to include these in my relative path. We did this before when we changed our working directory one folder up. 
+
+This directory structure will come into hand later so remember this :) 
+
+Curious what a file's path is? Find some file somewhere else on your computer. For Windows, right click the bar at the top that shows what folder you're in and select "copy address as text". For Mac, right click on the folder at the bottom of your Finder and select "copy "FolderName" as pathname". Paste it somewhere to see the path to the directory. 
+
+Find a more complicated directory to change into and use the code chunk below to do so:
+
+```{r}
+#setting cwd to a file somewhere else on computer
+
+```
+
+*Some extra info*
+
+If you want to go backwards instead of forwards, use the ".." directory. This means to go one directory backwards. So if my cwd is now my calculus directory, and I want to return to my Documents directory, I could run the following code:
+setwd("../..")
+Give it a try above if you want. The first ".." brings you to courses, and the second will take you to Documents. 
+
+**NOTE FOR WINDOWS USERS**
+Hey there, former Windows user here. You may have noticed above with your File Explorer that it showed you something like this: "C:\Documents\folder1\folder2". Windows uses the backslash in its directory structure. Pretty much everything else uses the forward slash, including R, so anytime you code and are referencing files or directories, you'll need to change the backslash, "\", to a forward slash, "/", or you will receive an error. I always did this by doing a search and replace (Cntrl + H) either in R or in a text file. 
+
+
+
+
+## Changing your working directory
+
+Return to your Documents directory. Create the directories listed above in that directory. 
+
+Download the Input.txt from Canvas and put it in your genetics directory.
+
+Use the first part of the following code chunk to navigate into the genetics directory. 
+
+```{r}
+#use the following space to set your working directory according to the instructions above
+
+
+
+
+####do not edit this####
+correctDir <- paste(docDir, "/courses/genetics", sep = "")
+curDir <- getwd()
+#######do not edit######
+
+#you may need to use this if it continues to not work for you. Get help before you do this, though, because it's a bit of a cheat
+#curDir <- str_split(getwd(), "/")[[1]][1:length(curDir)]
+#curDir <- tail(curDir[[1]], 2) 
+
+if (curDir == correctDir) {
+  print("Good job! You have changed directories correctly and may move on")
+} else {
+  print("That's not the correct directory. Make sure you have changed into the genetics folder with the directory structure described above.")
+}
+
+```
+*Some extra info*
+You may have noticed that the previous code chunk gave you a warning stating that the working directory will be reset when the chunk is finished running. This is a feature of an Rmd document, but this will not happen when you are coding in an R script. To get around this, I always set my working directory in the first code chunk of an Rmd (where I loaded the library you'll need for this Rmd), but as the warning states, you'll need to use the root.dir option. I have commented out an example in the setup chunk.  
+
+
+## Writing a file
+
+The following code will write a file for you into your working directory. Run it and make sure you see the file (called Output.txt) in your working directory.
+
+CHECK YOUR WORKING DIRECTORY BEFORE RUNNING. Access it in your File Explorer/Finder before running the code chunk & you'll see the file appear.
+
+```{r, echo = F}
+#CHECK WORKING DIRECTORY BEFORE RUNNING
+write(message, "Output.txt")
+
+# Note that if we wanted to write this file in a different directory, we could tell our computer to do this with a path (either relative or absolute):
+
+# write(message, "/Users/kusters/Documents/Output.txt") #absolute path
+# write(message, "/Documents/Output.txt") #relative path
+
+```
+
+Can't find the file? What is your cwd? Remember that the only directory that exists for your computer at the moment is its cwd. You can change your working directory and run the code chunk again, but don't forget to find the original "Output.txt" you created and delete it because it will still be there.
+
+Note that sometimes in an Rmd file, the cwd in a code chunk will be different from running getwd() in your Console. 
+
+*Some extra info*
+Erin will probably tell you about this, but often in coding and bioinformatics, we will work with .txt files. These are simple text files that only encode what we call ASCII characters, whereas Word documents (ending with .doc or .docx) encode special formatting and characters.
+
+
+
+
+## Reading a file
+
+The following code will read a file for you & print its contents. 
+
+```{r}
+string <- paste(readLines("Output.txt"))
+string
+
+```
+
+Did you run into an error? Check your cwd and make sure it's the same as where the file is. 
+
+For a harder challenge, try moving the file elsewhere and read in the file. How could you change the above command to tell the computer where the file is?
+
+
+
+## Make the correct directory
+
+The chunk below is reading in a file found in the directory you printed earlier (from the "Working what??" section). The directory for the file is "/ape/giraffe/elephant". You'll need to make a file called "AnimalNames.txt" within this directory structure in order for the code chunk to work. If it does not, it will print an error statement. 
+
+Note: if you write something in the text file when you make it and do not press enter/return, you might get a warning from R, but it doesn't mean anything important here. 
+
+```{r, echo = F}
+#do not edit anything in this code chunk
+animalPath <- paste(userDir, "/ape/giraffe/elephant/AnimalNames.txt", sep = "")
+
+paste(readLines(animalPath))
+
+```
+
+
+
+
+## A problem to solve
+
+Now that you are familiar with directories and reading and writing files, I have a problem for you to solve. The following code chunk will throw an error, and you will need to fix it. 
+
+A common problem solving approach when working with computers is to do something that you know will work (for example, you know that there was a correct way to read in the "Output.txt" file from before. Try manipulating that command to see if you can reproduce the error). Another is to google the error, but depending on the error, this may be more confusing until you know more (although arguably, this is the best way to learn). 
+
+```{r}
+###do not edit#####
+write(error, "Help.txt")
+
+paste(readLines(printer)) 
+####do not edit####
+
+#do your problem solving here:
+
+#a helpful command we've used in previous code chunks to read a file:
+#paste(readLines())
+#command to print to standard output:
+#print("")
+```
+
+
+
+
+## Optional challenge
+
+Often, we need to find the function we need via google or other sources. Reading in the text file above gave you a weird output. If you wanted to make that more readable, such as "This is a text file. But there are lots of lines", how could you do that?
+
+hint: What is the "\n" character? 
+
+```{r}
+
+```
+
+
+
+
+## Conclusion
+
+Working directories and an unfamiliarity with how computers work can cause a lot of issues early on. Just know that your computer will only do exactly what you tell it. They're really not as smart as we think they are; they're just very powerful tools. 
+
+When working with files, the easiest option is to store your input files or files you're writing with in the same directory as your R script. Sometimes you need to reference files elsewhere and then you'll need to keep track of the paths to your different files. 
+
+I hope this helped! Feel free to provide me with some feedback on what helped and what didn't. - Shady
