@@ -5,7 +5,7 @@
 | January 15, 2024     | January 17, 2024     | 0      | Syllabus/Setup                  | David              | 1    |
 | January 22, 2024     | January 24, 2024     | 1      | chatGPT                         | Multiple           | 2    |
 | January 29, 2024     | January 31, 2024     | 2      | Rstudio                         | Erin               | 3    |
-| **February 5, 2024** | **February 7, 2024** | **3**      | **Files and Folders**           | **Shady**          | **4**    |
+| **February 5, 2024** | **February 7, 2024** | **3**      | **[Files and Folders](modules/03_Files_and_Folders)**           | **[Shady](modules/03_Files_and_Folders)**          | **4**    |
 | **February 12, 2024**| **February 14, 2024**| **4**      | **Tidyverse**                   | **Meg**            | **5**    |
 | **February 19, 2024**| **February 21, 2024**| **5**      | **ggplot visualization**        | **Alex Alon**      | **6**    |
 | **February 26, 2024**| **February 28, 2024**| **6**      | **Getting Data**                | **Jess Hill**      | **7**    |
