@@ -1,0 +1,77 @@
+---
+title: "Files-Folders-Homework"
+author: "Shady Kuster"
+date: "2024-02-04"
+output: html_document
+---
+
+
+```{r setup, include=TRUE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library("fs")
+
+```
+
+## Assignment for Module 3: Files & Folders
+
+To recieve full credit, complete all sections. Upload your knitted Rmd in html, not Rmd, to Canvas. If you are having issues knitting your Rmd, email Shady (shady.kuster@colostate.edu), email David (david.king@colostate.edu), or attend coding club this Friday for help. I'm (shady) happy to meet in person, too, if that is more helpful, but I am likely unable to attend coding club due to prior commitments.  
+
+This assignment is due *February 15th at 11:59 PM*. 
+
+
+## Conceptual Questions
+
+1) What is the difference between an absolute path and a relative path?
+
+2) When might you use a relative or an absolute path?
+
+3) If you get the error "cannot open file 'example.csv': No such file or directory", what things should you check first?
+
+
+## Applied Questions
+
+4) Create the following directory system. Use dir_tree() to output the directory structure of the directory you made. 
+
+Within your cwd (change to a new, empty folder):
+ExFolder is empty
+Plant-Genera contains two directories: 1) Silene and 2) Arabidopsis
+Projects contains a directory called Linkage and two text files: 1) to-do.txt and 2) project-ideas.txt
+
+```{r}
+#Question 4
+
+```
+
+5) Make sure you have downloaded the HomeworkAssignmentInput.txt file from Canvas. 
+a) without modifying the code below and keeping your cwd the same as before (do not modify it), successfully run the following code chunk:
+
+```{r}
+#Question 5a - do not edit any of this code
+paste(readLines("HomeworkAssignmentInput.txt"))
+
+dir_tree(".")
+
+```
+
+b) copy the file to the Silene directory, and read in the file from that directory, keeping your cwd the same as the previous question. 
+
+```{r}
+#Question 5b 
+paste(readLines("")) #fill in path here
+
+dir_tree(".") #keep this here
+
+```
+
+c) now, change your working directory to be able to read the file from the Silene directory.
+
+```{r}
+#Question 5c
+#add what you need to here
+
+paste(readLines("HomeworkAssignmentInput.txt")) #do not change this line
+
+dir_tree(".") #keep this here
+```
+
