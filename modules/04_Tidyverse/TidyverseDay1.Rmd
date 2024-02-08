@@ -1,0 +1,246 @@
+---
+title: "TidyverseDay1"
+author: "YOUR NAME"
+output: pdf_document
+date: "2024-02-06"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Let's start! --------------------------------
+
+Chunk 1
+```{r}
+#Load libraries
+library(tidyverse)
+```
+
+Chunk 2
+```{r}
+#Load data
+surveys <- read_csv("diversity.csv")
+```
+
+Chunk 3
+```{r}
+#Extract first few lines of data using head() function
+head(surveys)
+```
+
+## Inspecting a dataframe --------------------------------
+Chunk 4
+```{r}
+#Inspect the structure of the data frame
+str(surveys)
+```
+
+Chunk 5
+```{r}
+#Inspect the names of the data frame
+names(surveys)
+```
+
+Chunk 6
+```{r}
+#Summarize the data frame
+summary(surveys)
+```
+
+## Indexing a dataframe --------------------------------
+
+Chunk 7
+```{r}
+#First row and column from surveys
+surveys[1, 1] 
+```
+
+Chunk 8
+```{r}
+#First row, sixth column
+surveys[1, 6]
+```
+
+Chunk 9
+```{r}
+#Select all columns for the first row
+surveys[1, ] 
+```
+
+Chunk 10
+```{r}
+#Select the first column across all rows
+surveys[, 1]
+```
+
+Chunk 11
+```{r}
+#Select the first three rows of the 5th and 6th column
+surveys[c(1, 2, 3), c(5, 6)] 
+```
+
+Chunk 12
+```{r}
+#We can use the : operator to create those vectors for us
+surveys[1:3, 5:6] 
+```
+
+Chunk 13
+```{r}
+#This is equivalent to head_surveys <- head(surveys)
+head_surveys <- surveys[1:6, ] 
+```
+
+Chunk 14
+```{r}
+#Call column name directly
+surveys["species_id"] 
+```
+
+## Subsetting a dataframe --------------------------------
+
+Chunk 15
+```{r}
+#The whole data frame, except the first column
+surveys[, -1]    
+```
+
+Chunk 16
+```{r}
+#Equivalent to head(surveys)
+surveys[-(7:nrow(surveys)), ] 
+```
+
+## Data Types: Conversion to a factor --------------------------------
+
+Chunk 17
+```{r}
+#Creating a factor
+surveys$sex <- factor(surveys$sex)
+```
+
+Chunk 18
+```{r}
+#Check factor conversion
+str(surveys)
+```
+
+Chunk 19
+```{r}
+#Summarize factor
+summary(surveys$sex)
+```
+
+## Data Types: Finding levels --------------------------------
+
+Chunk 20
+```{r}
+#New value ("sex")
+sex <- factor(c("male", "female", "female", "male"))
+```
+
+Chunk 21
+```{r}
+#Visualize levels (order) of data
+#Default is alphabetical order
+levels(sex)
+```
+
+Chunk 22
+```{r}
+#Number of levels
+nlevels(sex)
+```
+
+## Data Types: Changing factor order --------------------------------
+
+Chunk 23
+```{r}
+#Changing order of levels
+sex <- factor(sex, levels = c("male", "female"))
+```
+
+Chunk 24
+```{r}
+#Check new order
+sex
+```
+
+
+## Data Types: Renaming factors --------------------------------
+
+Chunk 25
+```{r}
+#Plot
+plot(surveys$sex)
+```
+
+Chunk 26
+```{r}
+#Assign variable
+sex <- surveys$sex
+```
+
+Chunk 27
+```{r}
+#Add a factor level
+sex <- addNA(sex)
+```
+
+Chunk 28
+```{r}
+#Visualize levels (order) of data
+levels(sex)
+```
+
+Chunk 29
+```{r}
+#Head variable
+head(sex)
+```
+
+Chunk 30
+```{r}
+#Rename third level
+levels(sex)[3] <- "undetermined"
+```
+
+Chunk 31
+```{r}
+#Re-plot with new level
+plot(sex)
+```
+
+
+## Questions ----------------------------------
+
+# Q1: Based on the output of str(survey) in chunk 4:
+1. What is the class of the object surveys? 
+2. How many rows and how many columns are in the object?
+
+# Q2: Based on code shown in chunk 9 and 16:
+1. Create a data.frame (surveys_200) containing only the data in row 200 of the surveys dataset.
+
+2. Notice how nrow() gave you the number of rows in a data.frame?
+
+- Use that number to pull out just that last row from the surveys dataset.
+- Compare that with what you see as the last row using tail() to make sure it’s meeting expectations.
+- Pull out that last row using nrow() instead of the row number.
+- Create a new data frame (surveys_last) from that last row.
+
+# Q3: Based on code shown in chunk 17:
+1. Change the columns taxa and genus in the surveys data frame into a factor.
+
+2. Using the functions you learned before, can you find out…
+
+- How many rabbits were observed?
+- How many different genera are in the genus column?
+
+# Q4: Based on code shown in chunk 28:
+1. Rename "F" and "M" to "female" and "male" respectively. 
+
+2. Can you recreate the barplot such that "undetermined" is first (before "female")?
+
+
+
