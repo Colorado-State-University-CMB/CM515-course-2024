@@ -1,7 +1,7 @@
 ---
 title: "TidyverseDay2"
 author: "YOUR NAME"
-output: pdf_document
+output: html_document
 date: "2024-02-06"
 ---
 
@@ -46,6 +46,14 @@ filter(surveys, year == 1995)
 ```
 
 ## Dplyr: Pipes --------------------------------
+
+
+
+##Add line with saving to each variable!
+
+###Multiple examples!
+
+
 
 Chunk 6
 ```{r}

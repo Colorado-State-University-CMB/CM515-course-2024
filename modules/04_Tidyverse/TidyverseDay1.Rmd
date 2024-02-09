@@ -1,10 +1,11 @@
 ---
 title: "TidyverseDay1"
 author: "YOUR NAME"
-output: pdf_document
+output: html_document
 date: "2024-02-06"
 ---
 
+Chunk 0
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
@@ -30,6 +31,7 @@ head(surveys)
 ```
 
 ## Inspecting a dataframe --------------------------------
+
 Chunk 4
 ```{r}
 #Inspect the structure of the data frame
@@ -88,25 +90,19 @@ surveys[1:3, 5:6]
 
 Chunk 13
 ```{r}
-#This is equivalent to head_surveys <- head(surveys)
-head_surveys <- surveys[1:6, ] 
-```
-
-Chunk 14
-```{r}
 #Call column name directly
 surveys["species_id"] 
 ```
 
 ## Subsetting a dataframe --------------------------------
 
-Chunk 15
+Chunk 14
 ```{r}
 #The whole data frame, except the first column
 surveys[, -1]    
 ```
 
-Chunk 16
+Chunk 15
 ```{r}
 #Equivalent to head(surveys)
 surveys[-(7:nrow(surveys)), ] 
@@ -114,19 +110,19 @@ surveys[-(7:nrow(surveys)), ]
 
 ## Data Types: Conversion to a factor --------------------------------
 
-Chunk 17
+Chunk 16
 ```{r}
 #Creating a factor
 surveys$sex <- factor(surveys$sex)
 ```
 
-Chunk 18
+Chunk 17
 ```{r}
 #Check factor conversion
 str(surveys)
 ```
 
-Chunk 19
+Chunk 18
 ```{r}
 #Summarize factor
 summary(surveys$sex)
@@ -134,20 +130,20 @@ summary(surveys$sex)
 
 ## Data Types: Finding levels --------------------------------
 
-Chunk 20
+Chunk 19
 ```{r}
 #New value ("sex")
 sex <- factor(c("male", "female", "female", "male"))
 ```
 
-Chunk 21
+Chunk 20
 ```{r}
 #Visualize levels (order) of data
 #Default is alphabetical order
 levels(sex)
 ```
 
-Chunk 22
+Chunk 21
 ```{r}
 #Number of levels
 nlevels(sex)
@@ -155,13 +151,13 @@ nlevels(sex)
 
 ## Data Types: Changing factor order --------------------------------
 
-Chunk 23
+Chunk 22
 ```{r}
 #Changing order of levels
 sex <- factor(sex, levels = c("male", "female"))
 ```
 
-Chunk 24
+Chunk 23
 ```{r}
 #Check new order
 sex
@@ -170,43 +166,43 @@ sex
 
 ## Data Types: Renaming factors --------------------------------
 
-Chunk 25
+Chunk 24
 ```{r}
 #Plot
 plot(surveys$sex)
 ```
 
-Chunk 26
+Chunk 25
 ```{r}
 #Assign variable
 sex <- surveys$sex
 ```
 
-Chunk 27
+Chunk 26
 ```{r}
 #Add a factor level
 sex <- addNA(sex)
 ```
 
-Chunk 28
+Chunk 27
 ```{r}
 #Visualize levels (order) of data
 levels(sex)
 ```
 
-Chunk 29
+Chunk 28
 ```{r}
 #Head variable
 head(sex)
 ```
 
-Chunk 30
+Chunk 29
 ```{r}
 #Rename third level
 levels(sex)[3] <- "undetermined"
 ```
 
-Chunk 31
+Chunk 30
 ```{r}
 #Re-plot with new level
 plot(sex)
@@ -215,11 +211,18 @@ plot(sex)
 
 ## Questions ----------------------------------
 
-# Q1: Based on the output of str(survey) in chunk 4:
+# Q1: 
 1. What is the class of the object surveys? 
+
+```{r}
+#Create new chunk for answers
+
+```
+
+
 2. How many rows and how many columns are in the object?
 
-# Q2: Based on code shown in chunk 9 and 16:
+# Q2: 
 1. Create a data.frame (surveys_200) containing only the data in row 200 of the surveys dataset.
 
 2. Notice how nrow() gave you the number of rows in a data.frame?
@@ -229,7 +232,7 @@ plot(sex)
 - Pull out that last row using nrow() instead of the row number.
 - Create a new data frame (surveys_last) from that last row.
 
-# Q3: Based on code shown in chunk 17:
+# Q3:
 1. Change the columns taxa and genus in the surveys data frame into a factor.
 
 2. Using the functions you learned before, can you find out…
@@ -237,7 +240,7 @@ plot(sex)
 - How many rabbits were observed?
 - How many different genera are in the genus column?
 
-# Q4: Based on code shown in chunk 28:
+# Q4: 
 1. Rename "F" and "M" to "female" and "male" respectively. 
 
 2. Can you recreate the barplot such that "undetermined" is first (before "female")?
