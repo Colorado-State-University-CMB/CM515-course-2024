@@ -1,4 +1,15 @@
 ---
+title: "CM515 Day 2 Plotting with ggPlot Empty Workbook"
+author: "Alex Alon"
+date: "2024-02-07"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+---
 title: "CM515 Day 2: Plotting with ggplot()"
 output: pdf_document
 ---
@@ -66,10 +77,10 @@ This data is not tidy, which means that we will have a lot lot lot of issues.
 
 dU_GC%>%
   ggplot() +
-  geom_point(aes(x=Hours, y=Blank.1)) +
-  geom_point(aes(x=Hours, y=Blank.2)) +
-geom_point(aes(x=Hours, y=Blank.3)) +
-geom_point(aes(x=Hours, y=Blank.4)) 
+  geom_point(aes(x=Hours, y=Blank.1, color="red")) +
+  geom_point(aes(x=Hours, y=Blank.2, color="blue")) +
+geom_point(aes(x=Hours, y=Blank.3, color="green")) +
+geom_point(aes(x=Hours, y=Blank.4, color="purple")) 
 
 ```
 
@@ -259,16 +270,17 @@ dU_GC_tidy_Stat%>%
 
 Now the mapping looks great! We have given R readable data that it can properly interpret into a graph.
 
-However, we have no idea which set of points are related to which strain, so lets add to our mapping some kind of factor to differenciate the Strains.
+However, we have no idea which set of points are related to which strain, so lets add to our mapping some kind of factor to differenciate the Strains.'
+
+
+Try making a simple graph for the data and factor by strain.
 
 ```{r, echo=T, message=F, warning=F}
 ####
 #04#
 ####
 
-dU_GC_tidy_Stat%>%
-  ggplot() +
-  geom_point(aes(x=Hours, y=mean, color=Strain))
+
   
 
 ```
@@ -288,6 +300,7 @@ https://en.wikipedia.org/wiki/List_of_Unicode_characters
 
 You can find all greek letters under Greek and Coptic. We put the unicode right into the string (unicode for delta is \u0394)
 
+
 ```{r, echo=T, message=F, warning=F}
 ####
 #05#
@@ -304,9 +317,8 @@ dU_GC_tidy_Stat <- dU_GC_tidy_Stat %>%
                   "TK1898/TK2143" = "\u0394TK1898/\u0394TK2143", 
                   "TK0887/TK1898/TK2143" = "\u0394TK0887/\u0394TK1898/\u0394TK2143"))
 
-dU_GC_tidy_Stat%>%
-  ggplot() +
-  geom_point(aes(x=Hours, y=mean, color=Strain))
+#now let's see how the graph looks with the mutated data
+
   
 
 ```
@@ -318,7 +330,7 @@ Now the data has received proper statistics and been mapped.
 
 We can now tell the dots apart, but, maybe a scatter plot is not the best way to represent this data.
 
-Lets look at a few different geometries.
+Find a different geometry.
 
 
 
@@ -327,53 +339,12 @@ Lets look at a few different geometries.
 #06#
 ####
 
-install.packages("ggridges")
-library(ggridges)
-
-dU_GC_tidy_Stat%>%
-  ggplot() +
-  geom_density_ridges_gradient(aes(x=Hours, y= Strain))
-```
-
-The {ggridges} package draws density curves which are by definition scaled to an area of 1.The height of the ridges therefore cannot be mapped to the mean OD so we must use a different graph.
-
-```{r, echo=T, message=F, warning=F}
-dU_GC_tidy_Stat%>%
-  ggplot() +
-  geom_step(aes(x=Hours, y=mean, color=Strain, fill=Strain))
-```
-
-Makes a step-wise line go through each point, but in this context it is quite ugly.
-
-
-```{r, echo=T, message=F, warning=F}
-dU_GC_tidy_Stat%>%
-  ggplot() +
-  geom_smooth(aes(x=Hours, y=mean, color=Strain, fill=Strain))
-
-
-```
-
-This one is pretty great when you are only measuring growth for a few strains, but with nine it looks overwhelming. 
-
-
-```{r, echo=T, message=F, warning=F}
-dU_GC_tidy_Stat%>%
-  ggplot() +
-  geom_line(aes(x=Hours, y=mean, color=Strain)) 
-
-#Perfect!
 
 ```
 
 # 6b. Overlapping Geometries
 
-While the line follows the trend, it is not a bad idea to include the points where the data are.
-
-We can also include error bars.
-
-Hypothetically, we could use geom_smooth for this, and just remove the standard error line.
-Unfortunately, the smooth function likes to smooth the line, so the points do not exactly match up.
+Let's combine multiple geometries to make as much data as possible.
 
 
 
@@ -382,16 +353,6 @@ Unfortunately, the smooth function likes to smooth the line, so the points do no
 #06b#
 ####
 
-dU_GC_tidy_Stat%>%
-  ggplot() +
-  geom_line(aes(x=Hours, y=mean, color=Strain), size=0.5) +
-  geom_point(aes(x=Hours, y=mean, color=Strain), size=1.2) +
-  geom_errorbar(width=0.1, aes(x=Hours, ymax = mean+sd, ymin = mean-sd, color=Strain)) 
-
-dU_GC_tidy_Stat%>%
-  ggplot(aes(x=Hours, y=mean, color=Strain)) +
-  geom_smooth(se=FALSE) +
-  geom_point()
 
 
 
@@ -401,10 +362,10 @@ dU_GC_tidy_Stat%>%
 
 Now this graph is starting to display our data appropriately.
 
-Let's add changing the axis labels
+Let's add axis labels.
 
 We want to specify that the y axis is optical density at 600nm.
-
+X axis is Time in hours
 
 Bquote allows us to customize our text to be bold, italicized and underlined. We can also add superscripts, subscripts, and many other components.
 
@@ -419,15 +380,7 @@ For more on bquote-use help("plotmath")
 
 help("plotmath")
 
-dU_GC_tidy_Stat%>%
-  ggplot() +
-  geom_line(aes(x=Hours, y=mean, color=Strain), size=0.5) +
-  geom_point(aes(x=Hours, y=mean, color=Strain), size=1.2) +
-  geom_errorbar(width=0.1, aes(x=Hours, ymax = mean+sd, ymin = mean-sd, color=Strain)) +
-  labs(title = "Only deletion of all dU repair components impacts growth", subtitle="85\u00B0C",
-       y = bquote(bold("OD")[600][nm]),
-       x = bquote(bold('Time (Hours)'))) +
-    theme(plot.title = element_text(hjust = 0.5), plot.subtitle= element_text(hjust = 0.5)) 
+
   
 
 ```
@@ -444,17 +397,7 @@ Instead of every 10 hours, lets look at every 4 hours.
 #08#
 ####
 
-dU_GC_tidy_Stat%>%
-  ggplot() +
-  geom_line(aes(x=Hours, y=mean, color=Strain), size=0.5) +
-  geom_point(aes(x=Hours, y=mean, color=Strain), size=1.2) +
-  geom_errorbar(width=0.1, aes(x=Hours, ymax = mean+sd, ymin = mean-sd, color=Strain)) +
-  labs(title = "Only deletion of all dU repair components impacts growth", subtitle="85\u00B0C",
-       y = bquote(bold("OD")[600][nm]),
-       x = bquote(bold('Time (Hours)'))) +
-    theme(plot.title = element_text(hjust = 0.5), plot.subtitle= element_text(hjust = 0.5)) +
-  scale_x_continuous(breaks=c(0, 4, 8, 12, 16, 20, 24), limits=c(0,26)) +
-  scale_y_continuous(breaks=c(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1), limits=c(-0.05, 1.125))
+
                        
                                                                 
 
@@ -487,6 +430,7 @@ dU_GC_tidy_Stat%>%
   scale_y_continuous(breaks=c(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1), expand=c(0,0)) +
   coord_cartesian(xlim=c(0,26.25), ylim=c(-0.05, 1.125))
                        
+                       
                                                                 
   
 ```
@@ -494,9 +438,7 @@ dU_GC_tidy_Stat%>%
 
 # 8c. Transforming to log scale
 
-That looks good!
-
-We could absolutely present the data this way. This will straighten out exponential growth patterns and reduce heteroscedasticity (i.e., stabilizes variance). Publishers will definitely prefer the log scale.
+Try manipulating scales_y_continuous to convert the graph to log scale.
 
 
 ```{r, echo=T, message=F, warning=F}
@@ -504,7 +446,8 @@ We could absolutely present the data this way. This will straighten out exponent
 #08c#
 ####
 
-dU_GC_tidy_Stat%>%
+
+        dU_GC_tidy_Stat%>%
   ggplot() +
   geom_line(aes(x=Hours, y=mean, color=Strain), size=0.5) +
   geom_point(aes(x=Hours, y=mean, color=Strain), size=1.2) +
@@ -516,7 +459,7 @@ dU_GC_tidy_Stat%>%
   scale_x_continuous(breaks=c(0, 4, 8, 12, 16, 20, 24), expand=c(0,0)) +
   scale_y_continuous(breaks=c(0.01, 0.1, 1.0), expand=c(0,0), trans='log10') +
   coord_cartesian(xlim=c(0,26.25), ylim=c(0.01, 1.2))
-                       
+                                      
                                                                 
   
 ```
@@ -525,7 +468,7 @@ dU_GC_tidy_Stat%>%
 
 Right now the legend is pretty out of order and the rainbow of colors is hard to follow.
 
-Let's make a color palette we can work with!
+Let's make a color palette we can work with using scale_colors. You decide if you want manual or brewer.
 
 
 ```{r, echo=T, message=F, warning=F}
@@ -533,33 +476,7 @@ Let's make a color palette we can work with!
 #09#
 ####
 
-dU_GC_tidy_Stat%>%
-  ggplot() +
-  geom_line(aes(x=Hours, y=mean, color=Strain), size=0.5) +
-  geom_point(aes(x=Hours, y=mean, color=Strain), size=1.2) +
-  geom_errorbar(width=0.1, aes(x=Hours, ymax = mean+sd, ymin = mean-sd, color=Strain)) +
-  labs(title = bquote(bold("Only deletion of all dU repair components impacts growth")), subtitle="85\u00B0C",
-       y = bquote(bold("OD")[600][nm]),
-       x = bquote(bold('Time (Hours)'))) +
-    theme(plot.title = element_text(hjust = 0.5), plot.subtitle= element_text(hjust = 0.5)) +
-  scale_x_continuous(breaks=c(0, 4, 8, 12, 16, 20, 24), expand=c(0,0)) +
-  scale_y_continuous(breaks=c(0.01, 0.1, 1.0), expand=c(0,0), trans='log10') +
-  coord_cartesian(xlim=c(0,26.25), ylim=c(0.01, 1.2)) + 
-  scale_color_manual(values=c("pink", "brown4", "red3", "yellow3", "steelblue3", "orange2", "purple3", "green2", "black" ), name = "Strain") 
 
-dU_GC_tidy_Stat%>%
-  ggplot() +
-  geom_line(aes(x=Hours, y=mean, color=Strain), size=0.5) +
-  geom_point(aes(x=Hours, y=mean, color=Strain), size=1.2) +
-  geom_errorbar(width=0.1, aes(x=Hours, ymax = mean+sd, ymin = mean-sd, color=Strain)) +
-  labs(title = bquote(bold("Only deletion of all dU repair components impacts growth")), subtitle="85\u00B0C",
-       y = bquote(bold("OD")[600][nm]),
-       x = bquote(bold('Time (Hours)'))) +
-    theme(plot.title = element_text(hjust = 0.5), plot.subtitle= element_text(hjust = 0.5)) +
-  scale_x_continuous(breaks=c(0, 4, 8, 12, 16, 20, 24), expand=c(0,0)) +
-  scale_y_continuous(breaks=c(0.01, 0.1, 1.0), expand=c(0,0), trans='log10') +
-  coord_cartesian(xlim=c(0,26.25), ylim=c(0.01, 1.2)) + 
-  scale_color_brewer(palette="Set3")
 
 ```
 # 9b. Set your colors to your legend
@@ -588,11 +505,13 @@ dU_GC_tidy_Stat%>%
   scale_color_manual(values=c("pink", "brown4", "red3", "yellow3", "steelblue3", "orange2", "purple3", "green2", "black" ), name = "Strain", breaks=c("Blank", "TS559-Parent Strain", "\u0394TK0887-Endonuclease Q", "\u0394TK1898-Endonuclease MS", "\u0394TK2143-Uracil DNA Glycosylase","\u0394TK0887/\u0394TK1898", "\u0394TK0887/\u0394TK2143", "\u0394TK1898/\u0394TK2143", "\u0394TK0887/\u0394TK1898/\u0394TK2143")) +
   geom_errorbar(width=0.1, aes(x=Hours, ymax = mean+sd, ymin = mean-sd, color=Strain)) +
   labs(title = bquote(bold("Only deletion of all dU repair components impacts growth")), subtitle="85\u00B0C", y = bquote(bold("OD")[600][nm]))
+
  
 ```
+
 # 9c. Setting limits to your legend.
 
-It is a bit strange having the Blank labeled when we do not see it. In a log ten scale we do not expect to see our Blank at all, so we can just remove it from the legend entirely by adding a limit to our color scaling.
+It is a bit strange having the Blank labeled when we do not see it. In a log ten scale we do not expect to see our Blank at all, so we can  remove it from the legend entirely by adding a limit to our color scaling.
 
 
 
@@ -615,15 +534,15 @@ dU_GC_tidy_Stat%>%
   coord_cartesian(xlim=c(0,26.25), ylim=c(0.01, 1.2)) + 
   scale_color_manual(values=c("white", "brown", "red3", "yellow3", "steelblue3", "orange2", "purple3", "green2", "black" ), name = "Strain", breaks=c("Blank", "TS559-Parent Strain", "\u0394TK0887-Endonuclease Q", "\u0394TK1898-Endonuclease MS", "\u0394TK2143-Uracil DNA Glycosylase","\u0394TK0887/\u0394TK1898", "\u0394TK0887/\u0394TK2143", "\u0394TK1898/\u0394TK2143", "\u0394TK0887/\u0394TK1898/\u0394TK2143"), limits = c("TS559-Parent Strain", "\u0394TK0887-Endonuclease Q", "\u0394TK1898-Endonuclease MS", "\u0394TK2143-Uracil DNA Glycosylase","\u0394TK0887/\u0394TK1898", "\u0394TK0887/\u0394TK2143", "\u0394TK1898/\u0394TK2143", "\u0394TK0887/\u0394TK1898/\u0394TK2143"))
 
+
+
 ```
 
 # 10. Theme
 
-Now we are done graphing, choose your favorite theme.
+Now that we are done graphing, choose your favorite theme.
 
-I prefer minimalism in my axis.
-
-If you put a theme, you will want to put it early in your ggplot code. Otherwise the theme is building off of every previous component and this can cause errors.
+Sometimes, if you put a theme, you may want to put it early in your ggplot code. Otherwise the theme is building off of every previous component and this can cause errors.
 
 
 ```{r, echo=T, message=F, warning=F}
@@ -631,20 +550,7 @@ If you put a theme, you will want to put it early in your ggplot code. Otherwise
 #10#
 ####
 
-dU_GC_tidy_Stat%>%
-  ggplot() +
-  theme_test() +
-  geom_line(aes(x=Hours, y=mean, color=Strain), size=0.5) +
-  geom_point(aes(x=Hours, y=mean, color=Strain), size=1.2) +
-  geom_errorbar(width=0.1, aes(x=Hours, ymax = mean+sd, ymin = mean-sd, color=Strain)) +
-  labs(title = bquote(bold("Only deletion of all dU repair components impacts growth")), subtitle="85\u00B0C",
-       y = bquote(bold("OD")[600][nm]),
-       x = bquote(bold('Time (Hours)'))) +
-  theme(plot.title = element_text(hjust = 0.5), plot.subtitle= element_text(hjust =   0.5)) +
-  scale_x_continuous(breaks=c(0, 4, 8, 12, 16, 20, 24), expand=c(0,0)) +
-  scale_y_continuous(breaks=c(0.01, 0.1, 1.0), expand=c(0,0), trans='log10') +
-  coord_cartesian(xlim=c(0,26.25), ylim=c(0.01, 1.2)) + 
-  scale_color_manual(values=c("white", "brown", "red3", "yellow3", "steelblue3", "orange2", "purple3", "green2", "black" ), name = "Strain", breaks=c("Blank", "TS559-Parent Strain", "\u0394TK0887-Endonuclease Q", "\u0394TK1898-Endonuclease MS", "\u0394TK2143-Uracil DNA Glycosylase","\u0394TK0887/\u0394TK1898", "\u0394TK0887/\u0394TK2143", "\u0394TK1898/\u0394TK2143", "\u0394TK0887/\u0394TK1898/\u0394TK2143"), limits = c("TS559-Parent Strain", "\u0394TK0887-Endonuclease Q", "\u0394TK1898-Endonuclease MS", "\u0394TK2143-Uracil DNA Glycosylase","\u0394TK0887/\u0394TK1898", "\u0394TK0887/\u0394TK2143", "\u0394TK1898/\u0394TK2143", "\u0394TK0887/\u0394TK1898/\u0394TK2143"))
+
   
 
 
@@ -652,7 +558,9 @@ dU_GC_tidy_Stat%>%
 ```
 # 10b. Adjusting Themes
 
-But what if I wanted a different theme and wanted no axis?
+But what if I wanted a different theme and want no grid panel
+
+Try a different theme and include a line of code to remove the background panels.
 
 Watch out-different themes will resize your axis, title, and legend, so you will have to fix this in post.
 
@@ -662,6 +570,8 @@ Watch out-different themes will resize your axis, title, and legend, so you will
 #10b#
 ####
 
+#the following line of code will remove the grid panel.
+  #theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
 
 #using a theme
 
@@ -700,6 +610,8 @@ dU_GC_tidy_Stat%>%
   scale_color_manual(values=c("white", "brown", "red3", "yellow3", "steelblue3", "orange2", "purple3", "green2", "black" ), name = "Strain", breaks=c("Blank", "TS559-Parent Strain", "\u0394TK0887-Endonuclease Q", "\u0394TK1898-Endonuclease MS", "\u0394TK2143-Uracil DNA Glycosylase","\u0394TK0887/\u0394TK1898", "\u0394TK0887/\u0394TK2143", "\u0394TK1898/\u0394TK2143", "\u0394TK0887/\u0394TK1898/\u0394TK2143"), limits = c("TS559-Parent Strain", "\u0394TK0887-Endonuclease Q", "\u0394TK1898-Endonuclease MS", "\u0394TK2143-Uracil DNA Glycosylase","\u0394TK0887/\u0394TK1898", "\u0394TK0887/\u0394TK2143", "\u0394TK1898/\u0394TK2143", "\u0394TK0887/\u0394TK1898/\u0394TK2143"))+
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
 theme(legend.text = element_text(family = '', face = 'bold', size = 6)) 
+
+
 ```
 # 11. ggSave
 
@@ -707,29 +619,15 @@ It looks like we are ready to save the graph!
 
 Let's use ggsave.
 
+
 ```{r, echo=T, message=F, warning=F}
 ####
 #10#
 ####
 
-dU_GC_tidy_Stat%>%
-  ggplot() +
-  theme_economist_white() +
-  geom_line(aes(x=Hours, y=mean, color=Strain), size=0.5) +
-  geom_point(aes(x=Hours, y=mean, color=Strain), size=1.2) +
-  geom_errorbar(width=0.1, aes(x=Hours, ymax = mean+sd, ymin = mean-sd, color=Strain)) +
-  labs(title = bquote(bold("Only deletion of all dU repair components impacts growth")), subtitle=bquote(bold("85\u00B0C")),
-       y = bquote(bold("OD")[600][nm]),
-       x = bquote(bold('Time (Hours)'))) +
-  theme(plot.title = element_text(hjust = 0.5), plot.subtitle= element_text(hjust =   0.5)) +
-  scale_x_continuous(breaks=c(0, 4, 8, 12, 16, 20, 24), expand=c(0,0)) +
-  scale_y_continuous(breaks=c(0.01, 0.1, 1.0), expand=c(0,0), trans='log10') +
-  coord_cartesian(xlim=c(0,26.25), ylim=c(0.01, 1.2)) + 
-  scale_color_manual(values=c("white", "brown4", "red3", "yellow3", "steelblue3", "orange2", "purple3", "green2", "black" ), name = "Strain", breaks=c("Blank", "TS559-Parent Strain", "\u0394TK0887-Endonuclease Q", "\u0394TK1898-Endonuclease MS", "\u0394TK2143-Uracil DNA Glycosylase","\u0394TK0887/\u0394TK1898", "\u0394TK0887/\u0394TK2143", "\u0394TK1898/\u0394TK2143", "\u0394TK0887/\u0394TK1898/\u0394TK2143"), limits = c("TS559-Parent Strain", "\u0394TK0887-Endonuclease Q", "\u0394TK1898-Endonuclease MS", "\u0394TK2143-Uracil DNA Glycosylase","\u0394TK0887/\u0394TK1898", "\u0394TK0887/\u0394TK2143", "\u0394TK1898/\u0394TK2143", "\u0394TK0887/\u0394TK1898/\u0394TK2143"))+
-  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
-theme(legend.text = element_text(face = 'bold', size = 6))
 
-ggsave("dU Growth Curve.jpg")
+
+
  
 ```
 
@@ -919,7 +817,7 @@ dU_85 <- dU_GC_tidy_Stat_Clean%>%
 
 dU_GC_tidy_95<-read.csv("Growth_Curve_dU_tidy_95.csv",fill=TRUE,header=TRUE)
 
-head(dU_GC_tidy_95)
+head(dU_GC_tidy)
 
 dU_GC_tidy_Stat_95 <- dU_GC_tidy_95 %>%
   group_by(Hours, Strain) %>%
@@ -929,7 +827,7 @@ dU_GC_tidy_Stat_95 <- dU_GC_tidy_95 %>%
 
 dU_GC_tidy_Stat_Clean_95 <- dU_GC_tidy_Stat_95[-(which(dU_GC_tidy_Stat_95$Strain %in% "Blank" )),]
 
-dU_95 <- dU_GC_tidy_Stat_Clean_95%>%
+dU_95 <- dU_GC_tidy_Stat_Clean%>%
   ggplot() +
   theme_test() +
   geom_line(aes(x=Hours, y=mean, color=Strain), size=0.5) +
@@ -959,6 +857,8 @@ ggsave("dU_GC_Final.jpg", dU_Plot)
 
 ```
 
+
+```
 
 # Appendix
 

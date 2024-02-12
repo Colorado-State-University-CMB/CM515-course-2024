@@ -697,6 +697,28 @@ iris %>%
   scale_y_continuous(name="Petal Width (cm)", breaks = c(1.0, 1.25, 1.50, 1.75, 2.0, 2.25, 2.50), limits=c(1.0,2.5))
 
 ```
+# 13. ggsave
+
+*******
+
+So far, these graphs have looked pretty underwhelming (not publication quality).
+
+On the R interface graphs do not look so great, but with ggsave, we can save our graph as a jpg, pdf, etc...
+
+Pick your favorite grpah from our exercises and see how it looks as a saved file.
+
+Look at how crisp that is!
+
+
+```{r, echo=F, message=F, warning=F}
+####
+#13#
+####
+
+
+
+ggsave("021124_First_Graph.jpg")
+```
 
 *******
 
