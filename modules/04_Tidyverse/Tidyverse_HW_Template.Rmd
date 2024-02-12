@@ -22,6 +22,8 @@ library(tidyverse)
 surveys <- read_csv("diversity.csv")
 ```
 
+### Tidyverse Day 1
+
 #### Q1: What is the class of the object surveys? 
 
 ```{r}
@@ -93,6 +95,8 @@ Columns:
 #Q8
 
 ```
+
+### Tidyverse Day 2
 
 #### Q9: Create a new data frame from the surveys data that meets the following criteria:
 
