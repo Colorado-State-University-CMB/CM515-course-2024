@@ -5,6 +5,7 @@ output: html_document
 date: "2024-02-06"
 ---
 
+Chunk 0
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
@@ -47,15 +48,32 @@ filter(surveys, year == 1995)
 
 ## Dplyr: Pipes --------------------------------
 
-
-
-##Add line with saving to each variable!
-
-###Multiple examples!
-
-
+## Pipes Example #1
 
 Chunk 6
+```{r}
+#Pipes step by step
+#Original data
+surveys
+```
+
+Chunk 7
+```{r}
+#Pipes step by step
+#Filter
+surveys2 <- filter(surveys, weight < 5) 
+surveys2
+```
+
+Chunk 8
+```{r}
+#Pipes step by step
+#Select
+surveys_sml <- select(surveys2, species_id, sex, weight)
+surveys_sml
+```
+
+Chunk 9
 ```{r}
 #Selecting and filtering using pipes
 surveys %>%
@@ -63,15 +81,48 @@ surveys %>%
   select(species_id, sex, weight)
 ```
 
-Chunk 7
+## Pipes Example #2
+
+Chunk 10
+```{r}
+#Pipes step by step
+#Original data
+surveys
+```
+
+Chunk 11
+```{r}
+#Pipes step by step
+#Filter
+surveys2 <- filter(surveys, genus == "Peromyscus", species == "maniculatus") 
+surveys2
+```
+
+Chunk 12
+```{r}
+#Pipes step by step
+#Select
+surveys_sml <- select(surveys2, sex, genus, species)
+surveys_sml
+```
+
+Chunk 13
+```{r}
+#Write the pipe
+surveys %>%
+```
+
+## Pipes continued
+
+Chunk 14
 ```{r}
 #Piping into new object
 surveys_sml <- surveys %>%
-  filter(weight < 5) %>%
-  select(species_id, sex, weight)
+  filter(genus == "Peromyscus", species == "maniculatus") %>% 
+  select(sex, genus, species)
 ```
 
-Chunk 8
+Chunk 15
 ```{r}
 #View new object
 surveys_sml
@@ -79,14 +130,14 @@ surveys_sml
 
 ## Dplyr: Mutate --------------------------------
 
-Chunk 9
+Chunk 16
 ```{r}
 #New column of weight in kg
 surveys %>%
   mutate(weight_kg = weight / 1000)
 ```
 
-Chunk 10
+Chunk 17
 ```{r}
 #Second new column based on the first new column
 surveys %>%
@@ -94,7 +145,7 @@ surveys %>%
          weight_lb = weight_kg * 2.2)
 ```
 
-Chunk 11
+Chunk 18
 ```{r}
 #New column of weight in kg and view head
 surveys %>%
@@ -102,7 +153,7 @@ surveys %>%
   head()
 ```
 
-Chunk 12
+Chunk 19
 ```{r}
 #Remove NAs from weight column
 surveys %>%
@@ -113,7 +164,32 @@ surveys %>%
 
 ## Dplyr: Group_by and summarize --------------------------------
 
-Chunk 13
+# Group_by Example #1
+
+Chunk 20
+```{r}
+#Pipes step by step
+#Original data
+surveys
+```
+
+Chunk 21
+```{r}
+#Pipes step by step
+#Group by
+surveys2 <- group_by(surveys, sex)
+surveys2
+```
+
+Chunk 22
+```{r}
+#Pipes step by step
+#Select
+surveys_sml <- summarize(surveys2, mean_weight = mean(weight, na.rm = TRUE))
+surveys_sml
+```
+
+Chunk 23
 ```{r}
 #Group_by and summarize
 surveys %>%
@@ -121,7 +197,9 @@ surveys %>%
   summarize(mean_weight = mean(weight, na.rm = TRUE))
 ```
 
-Chunk 14
+## Group_by and summarized continued
+
+Chunk 24
 ```{r}
 #Group_by multiple columns
 surveys %>%
@@ -130,7 +208,7 @@ surveys %>%
   tail()
 ```
 
-Chunk 15
+Chunk 25
 ```{r}
 #Omit NAs in weight
 surveys %>%
@@ -139,7 +217,7 @@ surveys %>%
   summarize(mean_weight = mean(weight))
 ```
 
-Chunk 16
+Chunk 26
 ```{r}
 #Summarizing multiple variables
 surveys %>%
@@ -150,7 +228,7 @@ surveys %>%
   arrange(min_weight)
 ```
 
-Chunk 17
+Chunk 27
 ```{r}
 #Arranging in descending order 
 surveys %>%
@@ -163,21 +241,21 @@ surveys %>%
 
 ## Dplyr: Counting --------------------------------
 
-Chunk 18
+Chunk 28
 ```{r}
 #Count
 surveys %>%
 	count(sex)
 ```
 
-Chunk 19
+Chunk 29
 ```{r}
 #Count a combination of factors
 surveys %>%
 	count(sex, species)
 ```
 
-Chunk 20
+Chunk 30
 ```{r}
 #Count a combination and arrange table in alphabetical order of species and descending order of the count
 surveys %>%
@@ -187,8 +265,9 @@ surveys %>%
 
 ## Tidyr: Pivoting --------------------------------
 
-Chunk 21
+Chunk 31
 ```{r}
+#Filter out NAs in weight, group_by plot_id and genus, summarize mean weight in new column
 surveys_gw <- surveys %>%
   filter(!is.na(weight)) %>%
   group_by(plot_id, genus) %>%
@@ -197,16 +276,18 @@ surveys_gw <- surveys %>%
 surveys_gw
 ```
 
-Chunk 22
+Chunk 32
 ```{r}
+#Pivot from long format to wide format
 surveys_wide <- surveys_gw %>%
   pivot_wider(names_from = genus, values_from = mean_weight)
 
 surveys_wide
 ```
 
-Chunk 23
+Chunk 33
 ```{r}
+#Pivot from wide format to long format
 surveys_long <- surveys_wide %>%
   pivot_longer(names_to = "genus", values_to = "mean_weight", cols = -plot_id)
 
@@ -214,24 +295,4 @@ surveys_long
 ```
 
 
-## Questions ----------------------------------
 
-# Q1: Based on code shown in chunk 6:
-1. Using pipes, subset the surveys data to include animals collected before 1995 and retain only the columns year, sex, and weight.
-
-# Q2: Based on code shown in chunk 12:
-1. Create a new data frame from the surveys data that meets the following criteria: contains only the species_id column and a new column called hindfoot_cm containing the hindfoot_length values (currently in mm) converted to centimeters. In this hindfoot_cm column, there are no NAs and all values are less than 3.
-
-Hint: think about how the commands should be ordered to produce this data frame!
-
-# Q3: Based on code shown in chunk 17 and chunk 18:
-1. How many animals were caught in each plot_type surveyed?
-
-2. Use group_by() and summarize() to find the mean, min, and max hindfoot length for each species (using species_id). Also add the number of observations (hint: see ?n).
-
-3. What was the heaviest animal measured in each year? Return the columns year, genus, species_id, and weight.
-
-# Q4: Based on code shown in chunks 21, 22 and 23:
-1. Reshape the surveys data frame with year as columns, plot_id as rows, and the number of genera per plot as the values. You will need to summarize before reshaping, and use the function n_distinct() to get the number of unique genera within a particular chunk of data. It’s a powerful function! See ?n_distinct for more.
-
-2. Now take that data frame and pivot_longer() it, so each row is a unique plot_id by year combination.

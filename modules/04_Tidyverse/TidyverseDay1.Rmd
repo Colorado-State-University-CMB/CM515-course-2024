@@ -180,7 +180,7 @@ sex <- surveys$sex
 
 Chunk 26
 ```{r}
-#Add a factor level
+#Add NA as a factor level
 sex <- addNA(sex)
 ```
 
@@ -208,42 +208,6 @@ Chunk 30
 plot(sex)
 ```
 
-
-## Questions ----------------------------------
-
-# Q1: 
-1. What is the class of the object surveys? 
-
-```{r}
-#Create new chunk for answers
-
-```
-
-
-2. How many rows and how many columns are in the object?
-
-# Q2: 
-1. Create a data.frame (surveys_200) containing only the data in row 200 of the surveys dataset.
-
-2. Notice how nrow() gave you the number of rows in a data.frame?
-
-- Use that number to pull out just that last row from the surveys dataset.
-- Compare that with what you see as the last row using tail() to make sure it’s meeting expectations.
-- Pull out that last row using nrow() instead of the row number.
-- Create a new data frame (surveys_last) from that last row.
-
-# Q3:
-1. Change the columns taxa and genus in the surveys data frame into a factor.
-
-2. Using the functions you learned before, can you find out…
-
-- How many rabbits were observed?
-- How many different genera are in the genus column?
-
-# Q4: 
-1. Rename "F" and "M" to "female" and "male" respectively. 
-
-2. Can you recreate the barplot such that "undetermined" is first (before "female")?
 
 
 
