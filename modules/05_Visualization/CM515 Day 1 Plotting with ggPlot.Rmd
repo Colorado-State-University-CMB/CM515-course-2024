@@ -1,0 +1,729 @@
+---
+title: "CM515 Day 1: Plotting with ggplot()"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+library(datasets)
+library(tidyverse)
+library(knitr)
+library(ggplot2)
+
+```
+
+# 1. Basic Plot Functions
+
+*******
+
+R has a built-in basic plot function. However it is pretty limited in scope.
+
+```{r, echo=T, message=F, warning=F}
+####
+#01#
+####
+plot(c(1,2,3,4,5),c(1,2,3,4,5), xlab="X-Axis", ylab="Y-Axis", type='l', main="This is a Graph", col='blue')
+
+```
+
+# 2. ggplot()
+
+*******
+
+Before I welcome you to the future with ggplot, we need some data.
+
+A ton of datasets can be accessed with data().
+
+
+```{r, echo=T, message=F, warning=F}
+####
+#02#
+####
+data()
+
+```
+
+
+# 2b. ggplot()
+
+*******
+
+We will use the iris data set primarily.
+
+It is worth getting familiar with the data.
+
+```{r, echo=T, message=F, warning=F}
+####
+#02b#
+####
+
+?iris
+
+head(iris)
+summary(iris)
+
+
+```
+
+# 2c. ggplot()
+
+*******
+
+Now let's try to graph, just using ggplot().
+
+...well?
+
+Nothing happens because we did not specify aesthetics or a geometry. 
+
+```{r, echo=T, message=F, warning=F}
+####
+#02c#
+####
+iris %>%
+  ggplot()
+
+```
+
+*******
+
+# 3. Mapping x and y Aesthetics with aes() Inside of ggplot()
+
+*******
+
+We’re closer now but we didn’t specify a geometry.
+
+```{r, echo=T, message=F, warning=F}
+####
+#03#
+####
+iris %>%
+  ggplot(aes(x = Sepal.Length, y = Sepal.Width))
+
+```
+
+*******
+
+# 4. Specifying a Geometry
+
+*******
+
+Specifying aesthetics and a geometry are the minimum requirement to make a plot using ggplot(). In this case, I specified geom_point(). Notice that I added it to the ggplot() function with “+”. "+" in this case acts like %>% for all code involving ggplot.
+
+```{r, echo=T, message=F, warning=F}
+####
+#04#
+####
+iris %>%
+  ggplot(aes(x = Sepal.Length, y = Sepal.Width)) +
+  geom_point()
+
+```
+
+*******
+
+# 4b. More about Geometry
+
+*******
+
+Each geometry has its own unique aesthetics and content. The aesthetics of a 
+scatter plot require x and y coordinates. This scatter plot allows us to modify:
+
+size=# (for the size of points)
+color="" (for the color)
+shape= "" (for the shape of the points)
+alpha= a range of 0-1 
+  alpha is transparency where 1 is transparent and 0 is visible 
+  (great for overlapping points)
+  
+Play around with these and see what you like
+
+```{r, echo=T, message=F, warning=F}
+####
+#04b#
+####
+
+
+# show them shape=22, fill="red", stroke=4
+iris %>%
+  ggplot(aes(x = Sepal.Length, y = Sepal.Width)) +
+  geom_point(color='steelblue1', size=4, alpha=0.5, shape="square")
+
+```
+
+
+
+
+# 5. Coloring by Factor
+
+*******
+
+We can color points by a factor, which is typically a categorical variable, to highlight specific trends. This is done by specifying “color” (sometimes abbreviated as “col”) within the aes() function. In this case, we specify that the points should be colored according to the factor “Species”.
+
+Note: For some geometries and/or variables you may need to use “fill” instead of “color” but overall they function similarly.
+
+```{r, echo=T, message=F, warning=F}
+####
+#08#
+####
+iris %>%
+  ggplot(aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
+  geom_point() +
+  labs(x = "Sepal Length", y = "Sepal Width", 
+       title = "Sepal Width vs. Sepal Length") +
+  theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5)) 
+
+iris %>%
+  ggplot(aes(x = Sepal.Length, y = Sepal.Width, col = Sepal.Length)) +
+  geom_point() +
+  labs(x = "Sepal Length", y = "Sepal Width", 
+       title = "Sepal Width vs. Sepal Length") +
+  theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5)) 
+
+```
+
+*******
+
+# 5b. Using Shape to Denote a Factor
+
+******* 
+
+Similar to “color” we can also make points different shapes based on a factor. To do so, we specify “shape = Species” inside the aes() function. By specifying “color = Species” and “shape = species”, each species gets a unique shape and color. 
+
+```{r, echo=T, message=F, warning=F}
+####
+#05b#
+####
+iris %>%
+  ggplot(aes(x = Sepal.Length, y = Sepal.Width, shape = Species)) +
+  geom_point() +
+  labs(x = "Sepal Length", y = "Sepal Width", 
+       title = "Sepal Width vs. Sepal Length") +
+  theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5)) 
+
+iris %>%
+  ggplot(aes(x = Sepal.Length, y = Sepal.Width, color = Species, shape = Species)) +
+  geom_point() +
+  labs(x = "Sepal Length", y = "Sepal Width", 
+       title = "Sepal Width vs. Sepal Length") +
+  theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5)) 
+
+```
+# 5c. Manipulating Geometry with Aesthetics
+
+*******
+
+Because geometry and aesthetics are somewhat intertwined, you can factor certain geometric components in your mapping. 
+
+Size and color do not have to be limited to specifics, but can also be linked to expressions
+
+Note that ggplot automatically creates legends for your specification in mapping.
+
+```{r, echo=T, message=F, warning=F}
+####
+#05c#
+####
+
+iris %>%
+  ggplot(aes(x = Sepal.Length, y = Sepal.Width, color=Sepal.Width > 3)) +
+  geom_point()
+
+
+iris %>%
+  ggplot(aes(x = Sepal.Length, y = Sepal.Width, color=Sepal.Width > 3, size=Sepal.Width > 3, shape= Sepal.Length > 6)) +
+  geom_point(alpha=0.5)
+
+```
+
+# 5d. Geometries vs Aesthetics
+
+*******
+
+It is important to note that you can customize your graph in both mapping and geometry, but there are advantages to each.
+
+Geometry lets you customize your entire mapping. Aesthetics lets you customize your mapping with respect to your data.
+
+Geometry will override any specifications you make in mapping.
+
+Depending on the situation, you may want your mapping within or outside your geometry.
+
+```{r, echo=T, message=F, warning=F}
+####
+#05d#
+####
+iris %>%
+  ggplot(aes(x = Sepal.Length, y = Sepal.Width, color=Sepal.Width > 3, size=Sepal.Width > 3, shape= Sepal.Length > 6)) +
+  geom_point(alpha=0.5, color="chocolate3", shape="square", size=2)
+
+```
+
+*******
+
+# 6. Plotting a Continuous Variable Against A Categorical Variable 
+
+*******
+
+## As a Scatter Plot
+
+```{r, echo=T, message=F, warning=F}
+####
+#6#
+####
+iris %>%
+  ggplot(aes(x = Species, y = Sepal.Length)) +
+  geom_point(size=3) 
+```
+
+Some of the points are overlapping. We can try using alpha here for transparency.
+
+```{r, echo=T, message=F, warning=F}
+
+iris %>%
+  ggplot(aes(x = Species, y = Sepal.Length)) +
+  geom_point(size = 3, 
+             alpha = .5) 
+
+```
+
+## As a Jitter Plot
+
+It looks like we have reached the limitations of a scatter plot for this context. 
+
+We will need to explore another geometry. geom_jitter spaces out overlapping points.
+
+Now we can see individual points better.
+
+```{r, echo=T, message=F, warning=F}
+
+iris %>%
+  ggplot(aes(x = Species, y = Sepal.Length)) +
+  geom_jitter(size = 3,
+              alpha = .5)
+
+```
+
+The default “jitter” settings “spread” the points too much for my liking, so I always adjust them using “width” and “height” within the geom_jitter() function.
+
+```{r, echo=T, message=F, warning=F}
+
+iris %>%
+  ggplot(aes(x = Species, y = Sepal.Length)) +
+  geom_jitter(size = 3,
+              alpha = .5, 
+              width = .2, 
+              height = 0) 
+
+```
+
+## As a Box Plot
+
+We could also use geom_boxplot().
+
+```{r, echo=T, message=F, warning=F}
+
+iris %>%
+  ggplot(aes(x = Species, y = Sepal.Length)) +
+  geom_boxplot() 
+
+```
+
+## As a Bar Plot with Error Bars
+
+We could use geom_col() and geom_errorbar() to make a bar plot but this requires calculating the Species mean and standard error “by hand” using the group_by() and summarise() functions and then plotting with ggplot(). 
+
+Note that we must specify “ymin” and “ymax” within the aes() of  geom_errorbar(). These are the lower and upper bounds of the error bars. I also adjusted the width of the error bars by specifying “width = .1” within geom_errorbar() but outside of aes().
+
+```{r, echo=T, message=F, warning=F}
+
+iris_2.0 <- iris %>%
+  group_by(Species) %>%
+  summarise(mean = mean(Sepal.Length), 
+            sd = sd(Sepal.Length), 
+            n = n(), 
+            se = sd/sqrt(n))
+iris_2.0
+
+iris_2.0 %>%
+  ggplot(aes(x = Species, y = mean, fill = Species)) +
+  geom_col() +
+  geom_errorbar(aes(ymax = mean + se, ymin = mean - se), 
+                width = .1)
+```
+
+Specifying “fill” instead of “color” has a similar but different effect on the plot.
+
+Notice here color relates to the outer boundary only.
+
+```{r, echo=T, message=F, warning=F}
+
+iris %>%
+  group_by(Species) %>%
+  summarise(mean = mean(Sepal.Length), 
+            sd = sd(Sepal.Length), 
+            n = n(), 
+            se = sd/sqrt(n)) %>%
+  ggplot(aes(x = Species, y = mean, color = Species)) +
+  geom_col() +
+  geom_errorbar(aes(ymax = mean + se, ymin = mean - se), 
+                width = .1) 
+
+```
+
+*******
+
+
+
+
+# 7. Overlaying Geoms: Boxplot with Points Overlain
+
+*******
+
+You can layer multiple geometries simply by including them in the same ggplot. Adding points over a boxplot is common form of this. However, because geom_boxplot() plots outliers as points geom_jitter plots all points, some observations are plotted twice. This problem can be seen above for the vriginica species.
+
+```{r, echo=T, message=F, warning=F}
+####
+#07#
+####
+iris %>%
+  ggplot(aes(x = Species, y = Sepal.Length)) +
+  geom_boxplot() +
+  geom_jitter(width = .2, 
+              height = 0,
+              alpha = .5, 
+              size = 3) 
+
+```
+
+
+To correct this, we can specify “outlier.shape = NA” withing geom_boxplot() as seen below.
+
+```{r, echo=T, message=F, warning=F}
+
+iris %>%
+  ggplot(aes(x = Species, y = Sepal.Length)) +
+  geom_boxplot(outlier.shape = NA) +
+  geom_jitter(size = 3,
+              width = .2,
+              height = 0,
+              alpha = .5)
+
+```
+# 8. Positioning Data
+
+What do we do if we have overlapping data?
+
+There are two ways we can resolve this issue.
+
+In bar plots, this is easily solved by position arguments. If we graph a count of how many leaves were a specific sepal length, the counts overlap between species.
+
+
+```{r, echo=T, message=F, warning=F}
+
+####
+#08#
+####
+
+iris %>%
+  ggplot()+
+  geom_bar(aes(x=Sepal.Width, fill=Species))
+
+```
+
+We can re-position the data using position_dodge.
+
+```{r, echo=T, message=F, warning=F}
+
+iris
+
+iris %>%
+  ggplot(aes(x=Sepal.Width, fill=Species))+
+  geom_bar( position=position_dodge())
+
+#this separates the columns nicely, but they are not all the same size.
+#let's try changing the width argument,
+
+iris %>%
+  ggplot(aes(x=Sepal.Width, fill=Species))+
+  geom_bar( position=position_dodge(), width=1)
+
+#woah that is too big!
+
+
+iris %>%
+  ggplot(aes(x=Sepal.Width, fill=Species))+
+  geom_bar( position=position_dodge(preserve='single'))
+
+#much better!
+
+```
+
+
+# 9. Adding Labels and a Title
+
+*******
+  
+Adding the labs() function with “+” lets us give the plot x and y labels as well as a title and subtitle
+
+You can also change the label for any component that has a built in legend.
+
+```{r, echo=T, message=F, warning=F}
+####
+#09#
+####
+iris %>%
+  ggplot() +
+  geom_point(aes(x = Sepal.Length, y = Sepal.Width, color=Sepal.Width > 3)) +
+  labs(x = "Sepal Length", y = "Sepal Width", 
+       title = "Sepal Width vs. Sepal Length", 
+       subtitle= "For Virginica, Versicolor, and Setosa",
+       color= "Large Sepal Length")
+
+```
+
+*******
+
+# 10. Centering the Title
+
+*******
+
+Many parameters can be adjusted in the theme function. Overall, its fairly unintuitive but typically, someone has done what you would like to do and posted the solution on the internet so it’s worth looking it up. I never remember how to center the title so I always have to look it up and copy the code. 
+
+```{r, echo=T, message=F, warning=F}
+####
+#10#
+####
+iris %>%
+  ggplot() +
+  geom_point(aes(x = Sepal.Length, y = Sepal.Width, color=Sepal.Width > 3)) +
+  labs(x = "Sepal Length", y = "Sepal Width", 
+       title = "Sepal Width vs. Sepal Length", 
+       subtitle= "For Virginica, Versicolor, and Setosa",
+       color= "Large Sepal Length") +
+  theme(plot.title = element_text(hjust = 0.5), plot.subtitle = element_text(hjust = 0.5)) 
+
+```
+
+*******
+
+# 11. Choosing a Theme
+
+*******
+
+There are many themes in ggplot(). The theme can be added using “+” and specifying a theme, such as “theme_bw()”. Here are 4 examples. Note that the “theme()” function comes after “theme_bw()”.
+
+The 4th example shows that it is a lot more than just the backdrop.
+
+```{r, echo=T, message=F, warning=F}
+####
+#11#
+####
+iris %>%
+  ggplot(aes(x = Sepal.Length, y = Sepal.Width)) +
+  geom_point() +
+  labs(x = "Sepal Length", y = "Sepal Width", 
+       title = "Sepal Width vs. Sepal Length") +
+  theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5)) 
+
+iris %>%
+  ggplot(aes(x = Sepal.Length, y = Sepal.Width)) +
+  geom_point() +
+  labs(x = "Sepal Length", y = "Sepal Width", 
+       title = "Sepal Width vs. Sepal Length") +
+  theme_dark() +
+  theme(plot.title = element_text(hjust = 0.5))
+
+iris %>%
+  ggplot(aes(x = Sepal.Length, y = Sepal.Width)) +
+  geom_point() +
+  labs(x = "Sepal Length", y = "Sepal Width", 
+       title = "Sepal Width vs. Sepal Length") +
+  theme_gray() +
+  theme(plot.title = element_text(hjust = 0.5)) 
+
+iris %>%
+  ggplot(aes(x = Sepal.Length, y = Sepal.Width)) +
+  geom_point() +
+  labs(x = "Sepal Length", y = "Sepal Width", 
+       title = "Sepal Width vs. Sepal Length") +
+  theme_test()
+
+```
+# 11b. More Themes!
+
+*******
+
+There are many many many more themes available than just those listed.
+
+ggthemes has a ton more options
+
+It goes beyond the scope of the class, but one can even generate their own themes.
+
+```{r, echo=T, message=F, warning=F}
+####
+#11b#
+####
+
+#install.packages("ggthemes")
+library(ggthemes)
+
+
+iris %>%
+  ggplot(aes(x = Sepal.Length, y = Sepal.Width)) +
+  geom_point() +
+  labs(x = "Sepal Length", y = "Sepal Width", 
+       title = "Sepal Width vs. Sepal Length") +
+  theme_stata()
+
+iris %>%
+  ggplot(aes(x = Sepal.Length, y = Sepal.Width)) +
+  geom_point() +
+  labs(x = "Sepal Length", y = "Sepal Width", 
+       title = "Sepal Width vs. Sepal Length") +
+  theme_solarized()
+
+iris %>%
+  ggplot(aes(x = Sepal.Length, y = Sepal.Width)) +
+  geom_point() +
+  labs(x = "Sepal Length", y = "Sepal Width", 
+       title = "Sepal Width vs. Sepal Length") +
+  theme_par()
+```
+
+*******
+
+# 12. Scales and Coordinates
+
+*******
+
+Scales 
+
+Scales allow us to define our mapping.
+
+We can use scale_color_gradient or scale_color_brewer to take a continuous variable and make a color scheme that is both easy and pleasant on the eyes.
+
+However, scale_color_brewer is only for categorical variables, not continuous ones.
+
+You can also use scale_color_manual to make your own colorset.
+
+(There is also a scale_shape_manual, but I will let you figure that one out ;)
+
+```{r, echo=F, message=F, warning=F}
+####
+#12#
+####
+
+iris %>%
+  ggplot(aes(x = Sepal.Length, y = Sepal.Width, color=Species)) +
+  geom_point() +
+  labs(x = "Sepal Length", y = "Sepal Width", 
+       title = "Sepal Width vs. Sepal Length") +
+  theme_stata() +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  scale_color_brewer("Species", palette="Dark2")
+```
+
+```{r, echo=F, message=F, warning=F}
+iris %>%
+  ggplot(aes(x = Sepal.Length, y = Sepal.Width, color=Species)) +
+  geom_point() +
+  labs(x = "Sepal Length", y = "Sepal Width", 
+       title = "Sepal Width vs. Sepal Length") +
+  theme_stata() +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  scale_color_manual(breaks=c("setosa", "versicolor", "virginica"), values=c("orange2", "steelblue4", "chocolate4"))
+```
+
+```{r, echo=F, message=F, warning=F}
+iris %>%
+  ggplot(aes(x = Sepal.Length, y = Sepal.Width, color=Sepal.Width)) +
+  geom_point(size=2) +
+  labs(x = "Sepal Length", y = "Sepal Width", 
+       title = "Sepal Width vs. Sepal Length") +
+  theme_dark() +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  scale_color_gradient(low = "yellow", high = "red")
+```
+
+
+# 12b. Scales for your axis
+
+*******
+
+Scales 
+
+You can also use scales to modify your axis. If we graph petal length and petal width, the standard x axis looks very sparse. What if we don't care about the setosa data and are more interested in the spread of versicolor and virginica data?
+
+We can use scales to zoom in on that data and provided more detailed tick marks to tease out the details.
+
+
+```{r, echo=F, message=F, warning=F}
+####
+#12b#
+####
+
+iris %>%
+  ggplot(aes(x = Petal.Length, y = Petal.Width, color=Species)) +
+  geom_point() +
+  labs(x = "Petal Length", y = "Petal Width", 
+       title = "Petal Width vs. Petal Length") +
+  theme_stata() +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  scale_color_brewer("Species", palette="Dark2")
+
+iris %>%
+  ggplot(aes(x = Petal.Length, y = Petal.Width, color=Species)) +
+  geom_point() +
+  labs(x = "Petal Length", y = "Petal Width", 
+       title = "Petal Width vs. Petal Length") +
+  theme_stata() +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  scale_color_brewer("Species", palette="Dark2") +
+  scale_x_continuous (breaks=c(0, 1, 2, 3, 4, 5, 6, 7), limits = c(0,7)) +
+  scale_y_continuous(limits=c(0,2.5))
+
+iris %>%
+  ggplot(aes(x = Petal.Length, y = Petal.Width, color=Species)) +
+  geom_point() +
+  labs(x = "Petal Length", y = "Petal Width", 
+       title = "Petal Width vs. Petal Length") +
+  theme_stata() +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  scale_color_brewer("Species", palette="Dark2") +
+  scale_x_continuous (name= "Petal Length (cm)", breaks=c(3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 6.5, 7.0),limits = c(3,7)) +
+  scale_y_continuous(name="Petal Width (cm)", breaks = c(1.0, 1.25, 1.50, 1.75, 2.0, 2.25, 2.50), limits=c(1.0,2.5))
+
+```
+# 13. ggsave
+
+*******
+
+So far, these graphs have looked pretty underwhelming (not publication quality).
+
+On the R interface graphs do not look so great, but with ggsave, we can save our graph as a jpg, pdf, etc...
+
+Pick your favorite grpah from our exercises and see how it looks as a saved file.
+
+Look at how crisp that is!
+
+
+```{r, echo=F, message=F, warning=F}
+####
+#13#
+####
+
+
+
+ggsave("021124_First_Graph.jpg")
+```
+
+*******
+
+# Appendix
+
+```{r show-code, ref.label = all_labels(), echo = TRUE, eval = FALSE}
+
+```

@@ -1,0 +1,198 @@
+---
+title: "CM515 Assignment 5"
+author: "Your Name"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F, message = F, warning = F)
+```
+
+# Instructions 
+
+The aim of this assignment is to provide you with an opportunity to sharpen your skills in using ggplot(). While some of the plots you create may resemble those we covered in class, it is essential that they are original. 
+ 
+ Rules for the Assignment:
+ 
+ 1.All data sets except iris are fair game. That includes past data sets used in the class, sets built into R, your own data, and even online data.
+ 
+ 2. All graphs must include axis labels, plot title, a theme of your choice, and a brief description/interpretation of the plot (2-3 sentences).
+
+
+It's worth noting that ggplot() is a widely-used tool, and there are numerous online resources available for you to explore. We strongly recommend that you take advantage of these resources to deepen your understanding of ggplot(). 
+
+Knit the document into a PDF and submit it to Canvas by 02/28/2024 at 11:59 pm.
+
+# Load Packages and Data
+
+*******
+
+```{r}
+####
+#00#
+####
+library(knitr)
+library(tidyverse)
+
+```
+
+*******
+
+# 1. Make a Scatter Plot With Customized Point Size and Transparency (3pts)
+
+*******
+
+Description and Interpretation:
+
+```{r}
+####
+#01#
+####
+
+
+```
+
+*******
+
+# 2. Fit a Line Through Your Scatter Plot From 1. (3pts)
+
+*******
+
+Description and Interpretation:
+
+```{r}
+####
+#02#
+####
+#your code here
+
+```
+
+# 3. Set the transparency, shape, and color of your graph from 1 based on expressions. Scale the color. (3pts)
+
+*******
+
+Description and Interpretation:
+
+```{r}
+####
+#03#
+####
+#your code here
+
+```
+
+*******
+
+# 4. Make a Boxplot With Customized Boxplot Width (3pts)
+
+*******
+
+Description and Interpretation:
+
+```{r}
+####
+#04#
+####
+#your code here
+
+```
+
+*******
+
+# 5. Overlay the Individual Points Over Your Box Plot From 3. and Adjust the Point Size and Transparency as Needed (3pts)
+
+******
+
+Description and Interpretation:
+
+```{r}
+####
+#05#
+####
+#your code here
+
+```
+
+# 6. Make a plot and modify the scale in a beneficial way using scale_x_continuous(), scale_y_continuous(), and coordinate_cartesian(). Explain how your modifications to the scales improved the plot. (4pts)
+
+******
+
+Description and Interpretation:
+
+```{r}
+####
+#06#
+####
+#your code here
+
+```
+
+******
+
+# 7. Make a New (don't use any plots from 1-4) Plot with facet_wrap() (4pts)
+
+******
+
+Description and Interpretation:
+
+```{r}
+#07#
+####
+#your code here
+
+```
+
+# 8. Using the plot from 5, scale the colors and reorder your facet to reverse order. (4pts)
+
+******
+
+Description and Interpretation:
+
+```{r}
+#08#
+####
+#your code here
+
+```
+
+******
+
+# 9. Make a Plot Using a Geometry That Was Not Covered in Class (4pts)
+
+******
+
+Description and Interpretation:
+
+```{r}
+####
+#09#
+####
+#your code here 
+```
+
+# 10. Make a Plot Using a ggplot Extension That Was Not Covered in Class. Explain what the extension does. (4pts)
+
+******
+
+Description and Interpretation:
+
+```{r}
+####
+#10#
+####
+#your code here 
+```
+
+******
+
+# Appendix
+
+```{r show-code, ref.label = all_labels(), echo = TRUE, eval = FALSE}
+
+```
+
+
+
