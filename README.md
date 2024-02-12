@@ -6,6 +6,7 @@
 | January 22     | January 24     | 1      | chatGPT                         | Multiple           | 2    |
 | January 29     | January 31     | 2      | Rstudio                         | Erin               | 3    |
 | February 5     | February 7     | 3      | Files and Folders               | Shady              | 4    |
+| |  | | | | |
 | [**February 12**](modules/04_Tidyverse)| [**February 14**](modules/04_Tidyverse) | [**4**](modules/04_Tidyverse)      | [**Tidyverse**](modules/04_Tidyverse)                   | [**Meg Hemmerlein** ](modules/04_Tidyverse)  | [**5**](modules/04_Tidyverse)   |
 | **February 19**| **February 21**| **5**      | **ggplot visualization**        | **Alex Alon**      | **6**    |
 | **February 26**| **February 28**| **6**      | **Getting Data**                | **Jess Hill**      | **7**    |
