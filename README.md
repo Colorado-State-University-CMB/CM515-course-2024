@@ -5,8 +5,9 @@
 | January 15     | January 17     | 0      | Syllabus/Setup                  | David              | 1    |
 | January 22     | January 24     | 1      | chatGPT                         | Multiple           | 2    |
 | January 29     | January 31     | 2      | Rstudio                         | Erin               | 3    |
-| **February 5** | **February 7** | **3**      | **[Files and Folders](modules/03_Files_and_Folders)**           | **[Shady](modules/03_Files_and_Folders)**          | **4**    |
-| **February 12**| **February 14**| **4**      | **Tidyverse**                   | **Meg**            | **5**    |
+| February 5     | February 7     | 3      | Files and Folders               | Shady              | 4    |
+| |  | | | | |
+| [**February 12**](modules/04_Tidyverse)| [**February 14**](modules/04_Tidyverse) | [**4**](modules/04_Tidyverse)      | [**Tidyverse**](modules/04_Tidyverse)                   | [**Meg Hemmerlein** ](modules/04_Tidyverse)  | [**5**](modules/04_Tidyverse)   |
 | **February 19**| **February 21**| **5**      | **ggplot visualization**        | **Alex Alon**      | **6**    |
 | **February 26**| **February 28**| **6**      | **Getting Data**                | **Jess Hill**      | **7**    |
 | **March 4**    | **March 6**    | **7**      | **Proteomics**                  | **Corey Broeckling**| **8**    |
