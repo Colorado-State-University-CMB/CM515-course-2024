@@ -1,0 +1,69 @@
+---
+title: "Factor"
+output: html_document
+date: "2024-02-14"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+# ANOVA with Factor ---------------
+# Sample data
+group <- rep(LETTERS[1:4], each = 20)
+value <- c(rnorm(20, mean = 10, sd = 2),
+           rnorm(20, mean = 12, sd = 2),
+           rnorm(20, mean = 15, sd = 2),
+           rnorm(20, mean = 18, sd = 2))
+
+# Create a dataframe
+df <- data.frame(group = factor(group), value)
+
+# Check the structure of the dataframe
+str(df)
+
+# Perform ANOVA
+anova_result <- aov(value ~ group, data = df)
+
+# Summary of ANOVA
+summary(anova_result)
+```
+
+
+```{r}
+# ANOVA with Character ---------------
+group_char <- rep(LETTERS[1:4], each = 20)
+value <- c(rnorm(20, mean = 10, sd = 2),
+           rnorm(20, mean = 12, sd = 2),
+           rnorm(20, mean = 15, sd = 2),
+           rnorm(20, mean = 18, sd = 2))
+
+str(group_char)
+
+# Perform ANOVA with group as character
+anova_char <- aov(value ~ group_char)
+
+# Summary of ANOVA results
+summary(anova_result)
+summary(anova_char)
+```
+
+
+```{r}
+# ANOVA with Numeric ---------------
+
+group_numeric <- rep(1:4, each = 20)
+value <- c(rnorm(20, mean = 10, sd = 2),
+           rnorm(20, mean = 12, sd = 2),
+           rnorm(20, mean = 15, sd = 2),
+           rnorm(20, mean = 18, sd = 2))
+
+str(group_numeric)
+
+# Perform ANOVA with group as numeric
+anova_numeric <- aov(value ~ group_numeric)
+
+summary(anova_result)
+summary(anova_numeric)
+```
