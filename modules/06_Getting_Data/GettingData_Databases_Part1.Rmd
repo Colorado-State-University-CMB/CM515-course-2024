@@ -100,13 +100,6 @@ The file formats you will most likely work with are .csv, .tsv or .txt, .xlsx, D
 
 Many ways to import data into R, but usually we use a function that is somewhat specific to the file type we are trying to import. 
 
-> First make sure all of the example data sets are downloaded. Once the data is downloaded and or the repository is cloned to your desktop using GitHub desktop, lets find our current working directory and then set it as our working directory. This will make it easier for us to point to files during the lesson. 
-
-```{r}
-getwd() # find our current working directory 
-setwd("/Users/jessicahill/Documents/GitHub/CM515-course-2024") # set the directory we want as our current working directory
-```
-
 Lets check out some examples below: 
 
 1)  Read in a .csv file, using 'read.csv'
@@ -123,8 +116,8 @@ head(data2, 5)
 
 3) Read in a .txt file, using 'read.delim' 
 ```{r}
-data4 <- read.delim("./Example_Data/TulsaJun20_2020.txt",header = F)
-head(data4, 7) # if you read in over 7 lines, you will see his whole speech
+data3 <- read.delim("./Example_Data/TulsaJun20_2020.txt",header = F)
+head(data3, 7) # if you read in over 7 lines, you will see his whole speech
 ```
 
 4) Read in an Excel file
@@ -164,33 +157,49 @@ dbListTables(conn)
 # run a query and display the results, using the dbGetQuery() function. Just add a SQLite connection object and SQL query as a string.  
 print(head(dbGetQuery(conn, "SELECT * FROM player"), 5))
 
-data6 = dbGetQuery(conn, "SELECT * FROM inactive_players")
-head(data6, 5)
+data4 = dbGetQuery(conn, "SELECT * FROM inactive_players")
+head(data4, 5)
 ```
 
 6) Import data from XML files
 
+XML (eXtensible Markup Language) provides a standardized way to represent and store data. It also facilitates data exchange and interoperability between softwares and databases. Finally, it easily allows for web integration. 
+
+Akin to XML, is JSON (JavaScript Object Notation), another data interchange format
+
 [XML Repository with example data](https://www.w3schools.com/xml/)
+
 ```{r}
 # Uncomment to install, then recomment when done installing
 #install.packages("XML", "xml2")
 library(XML)
 library(xml2)
 
-
-breakfast_menue <- read_xml("https://www.w3schools.com/xml/simple.xml")
-
-breakfast_menue_parse <- xmlParse(breakfast_menue)
-breakfast_menue_parse
-
-breakfast_menue_nodes= getNodeSet(breakfast_menue_parse, "//food")
-breakfast_menue_nodes
-
-data7 <- xmlToDataFrame(breakfast_menue_parse, nodes=breakfast_menue_nodes)
-head(data7)
+elt2 = read_xml('./Example_Data/celegans_elt2.xml')
+elt2_parsed = xmlParse(elt2)
+Dbtag = getNodeSet(elt2_parsed, "//Dbtag")
+elt2_df = xmlToDataFrame(elt2_parsed, nodes=Dbtag)
+print(elt2_df)
 ```
 
-7) Import data from HTML files
+7) Read in a JSON (JavaScript Object Notation) file
+```{r}
+# Uncomment to install, then recomment when done installing
+#install.packages("rjson")
+library(rjson)
+
+JsonData <- fromJSON(file = './Example_Data/iris.json')
+print(JsonData[1:10])
+
+# to convert the JSON data into an R dataframe, use 'as.data.frame()' function in the data.table package
+#install.packages("data.table") 
+library(data.table)
+
+data6 = do.call("rbind", JsonData)
+data6
+```
+
+8) Import data from HTML files
 ```{r}
 # Uncomment to install, then recomment when done installing
 #install.packages("rvest")
@@ -199,17 +208,17 @@ library(rvest)
 
 url <- read_html("https://en.wikipedia.org/wiki/COVID-19_pandemic_deaths#:~:text=There%20have%20been%20reported%207%2C026%2C534,16%20and%2028.2%20million%20deaths.")
 tables <- html_nodes(url, "table")
-data8 <- html_table(tables[10])
-data8 <- as.data.frame(data8)
-print(head(data8, 5))
+data7 <- html_table(tables[10])
+data7 <- as.data.frame(data7)
+print(head(data7, 5))
 ```
 
 ```{r}
 url2 <- read_html("https://en.wikipedia.org/wiki/List_of_U.S._states_by_life_expectancy")
 tables2 <- html_nodes(url2, "table")
-data9 <- html_table(tables2[1])
-data9 <- as.data.frame(data9)
-print(head(data9, 5))
+data8 <- html_table(tables2[1])
+data8 <- as.data.frame(data8)
+print(head(data8, 5))
 ```
 
 ---
