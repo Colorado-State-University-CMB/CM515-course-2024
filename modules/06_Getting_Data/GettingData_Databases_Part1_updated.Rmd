@@ -1,0 +1,302 @@
+---
+title: "Getting Data and Databases (Part 1)"
+author: "Jessica Hill"
+date: '`r Sys.Date()`'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = TRUE, warning = FALSE)
+```
+
+---
+
+## Importing/Exporting data in R
+
+#### <ins> Considerations: How is the data formatted? <ins>
+
+Before importing data into R, we need to check how our data is formatted. Is our data tidy?
+
+Does your data file have row and column names?
+
+- If not, consider adding them. 
+
+- If so, are they using good or bad naming conventions? 
+        
+```
+# Helpful tips
+
+- Avoid names with blank spaces. 
+    Good column names: Long_jump or Long.jump
+    Bad column name: Long jump
+
+- Avoid names with special symbols: ?, $, *, +, #, (, ), -, /, }, {, |, >, <
+    Only underscore can be used.
+
+- Avoid beginning variable names with a number. Use letter instead. 
+    Good column names: sport_100m or x100m 
+    Bad column name: 100m
+
+- Each variable has its own column. Each row is an observation.
+    All data in a column has the same type (e.g. it is all numerical data, or it is all text data)
+
+- Column names must be unique and describe the variable contained within that column. Duplicated names are not allowed.
+
+- No blank columns or blank rows between data
+
+- R is case sensitive. This means that Name is different from Name or NAME.
+
+- Delete any comments in your file
+
+- Replace missing values by NA (for not available)
+
+- If you have a column containing date, use the four digit format. 
+    Good format: 01/01/2016 
+    Bad format: 01/01/16
+    
+- Data are consistent (e.g. if a binary variable can take values ‘Yes’ or ‘No’ then only these two values are allowed, with no alternatives such as ‘Y’ and ‘N’)
+```
+
+For more helpful tips, see: 
+
+- [Anderson Chapter 2, Module 2.3: The "Tidy" Data Format](https://geanders.github.io/improve_repro/2.3-module3.html#module3)
+    
+- [Formatting Problems](https://datacarpentry.org/spreadsheet-ecology-lesson/02-common-mistakes/)
+
+```
+# Key take aways
+
+- Avoid using multiple tables within one spreadsheet.
+- Avoid spreading data across multiple tabs.
+- Record zeros as zeros. Dont leave them blank.
+- Use an appropriate null value to record missing data.
+- Don’t use formatting to convey information or to make your spreadsheet look pretty.
+- Place comments in a separate column.
+- Record units in column headers.
+- Include only one piece of information in a cell.
+- Avoid spaces, numbers and special characters in column headers.
+- Avoid special characters in your data.
+- Record metadata in a separate plain text file.
+```
+
+---
+
+#### <ins> Considerations: What is the data type? <ins>
+
+We also need to make sure that the data is saved in a file format that R can recognize. 
+
+What type of file formats can R recognize?
+
+- Quite a lot actually. 
+-  Here are some resources to check out below 
+    - [Import, Export, and Convert Data Files](https://cran.r-project.org/web/packages/rio/vignettes/rio.html)
+    - [R Data Import/Export](https://cran.r-project.org/doc/manuals/r-release/R-data.html) 
+
+The file formats you will most likely work with are .csv, .tsv or .txt, .xlsx, Database, XML/HTML, JSON 
+
+---
+
+#### <ins> How can we import data into R? <ins>
+
+Many ways to import data into R, but usually we use a function that is somewhat specific to the file type we are trying to import. 
+
+Lets check out some examples below: 
+
+1)  Read in a .csv file, using 'read.csv'
+```{r}
+data1 <- read.csv('./Example_Data/heart_data.csv')
+head(data1, 5)
+```
+
+2)  Now read in the same .csv file, but using 'read.table'
+```{r}
+data2 <- read.table('./Example_Data/heart_data.csv', sep=",", header = 1)
+head(data2, 5)
+```
+
+3) Read in a .txt file, using 'read.delim' 
+```{r}
+data3 <- read.delim("./Example_Data/TulsaJun20_2020.txt",header = F)
+head(data3, 7) # if you read in over 7 lines, you will see his whole speech
+```
+
+4) Read in an Excel file
+```{r}
+# Uncomment to install, then recomment when done installing
+#install.packages("tidyverse") 
+library(tidyverse)
+#install.packages("readxl")
+library(readxl) 
+
+
+Data <- read_excel("./Example_Data/HNP_Stats.xlsx", sheet = 1)
+head(Data, 5)
+
+Country <- read_excel("./Example_Data/HNP_Stats.xlsx", sheet = 2)
+head(Country, 5)
+
+Series <- read_excel("./Example_Data/HNP_Stats.xlsx", sheet = 3)
+head(Series, 5)
+```
+
+5) Import data from a Database using SQL
+```{r}
+# Uncomment to install, then recomment when done installing
+#install.packages("DBI")
+#install.packages("RSQLite")
+library(DBI)
+library(RSQLite)
+
+
+# load the database using dbConnect()
+conn <- dbConnect(RSQLite::SQLite(), "./Example_Data/basketball.sqlite")
+
+# display the names of the tables
+dbListTables(conn)
+
+# run a query and display the results, using the dbGetQuery() function. Just add a SQLite connection object and SQL query as a string.  
+print(head(dbGetQuery(conn, "SELECT * FROM player"), 5))
+
+data4 = dbGetQuery(conn, "SELECT * FROM inactive_players")
+head(data4, 5)
+```
+
+6) Import data from XML files
+
+XML (eXtensible Markup Language) provides a standardized way to represent and store data. It also facilitates data exchange and interoperability between softwares and databases. Finally, it easily allows for web integration. 
+
+Akin to XML, is JSON (JavaScript Object Notation), another data interchange format
+
+[XML Repository with example data](https://www.w3schools.com/xml/)
+
+```{r}
+# Uncomment to install, then recomment when done installing
+#install.packages("XML", "xml2")
+library(XML)
+library(xml2)
+
+elt2 = read_xml('./Example_Data/celegans_elt2.xml')
+elt2_parsed = xmlParse(elt2)
+Dbtag = getNodeSet(elt2_parsed, "//Dbtag")
+elt2_df = xmlToDataFrame(elt2_parsed, nodes=Dbtag)
+print(elt2_df)
+```
+
+7) Read in a JSON (JavaScript Object Notation) file
+```{r}
+# Uncomment to install, then recomment when done installing
+#install.packages("rjson")
+library(rjson)
+
+JsonData <- fromJSON(file = './Example_Data/iris.json')
+print(JsonData[1:10])
+
+# to convert the JSON data into an R dataframe, use 'as.data.frame()' function in the data.table package
+#install.packages("data.table") 
+library(data.table)
+
+data6 = do.call("rbind", JsonData)
+data6
+```
+
+8) Import data from HTML files
+```{r}
+# Uncomment to install, then recomment when done installing
+#install.packages("rvest")
+library(rvest)
+
+
+url <- read_html("https://en.wikipedia.org/wiki/COVID-19_pandemic_deaths#:~:text=There%20have%20been%20reported%207%2C026%2C534,16%20and%2028.2%20million%20deaths.")
+tables <- html_nodes(url, "table")
+data7 <- html_table(tables[10])
+data7 <- as.data.frame(data7)
+print(head(data7, 5))
+```
+
+```{r}
+url2 <- read_html("https://en.wikipedia.org/wiki/List_of_U.S._states_by_life_expectancy")
+tables2 <- html_nodes(url2, "table")
+data8 <- html_table(tables2[1])
+data8 <- as.data.frame(data8)
+print(head(data8, 5))
+```
+
+---
+
+#### <ins> How can we export data from R? <ins>
+
+There are a several ways to export data from R
+
+But first we need to read in some data, manipulate it, and then we will export it.
+```{r}
+winequality_df <- read.csv("./Example_Data/winequality-red.csv", header = T)
+
+new_winequality_df <- winequality_df %>% filter(quality > 6)
+```
+
+Export a dataframe to a .txt file, using write.table 
+```{r}
+write.table(new_winequality_df, file = './Example_Data/new_winequality_df.txt', col.names = TRUE,
+             row.names = FALSE, sep = "\t")
+```
+
+Export a dataframe to a .csv file, using write.table
+```{r}
+write.table(new_winequality_df, file = './Example_Data/new_winequality_df.csv', col.names = TRUE,
+             row.names = FALSE, sep = ",")
+```
+
+Now export the same dataframe to a .csv file, using write.csv 
+```{r}
+write.csv(new_winequality_df, file = './Example_Data/new_winequality_df2.csv', row.names = FALSE)
+```
+
+An alternative to write.table (meant to be faster)
+```{r}
+# Uncomment to install, then recomment when done installing 
+#install.packages("data.table")
+library(data.table)
+
+
+fwrite(new_winequality_df, file = './Example_Data/new_winequality_df2.txt', sep = "\t")
+
+fwrite(new_winequality_df, file = './Example_Data/new_winequality_df3.csv')
+```
+
+---
+
+#### <ins> Are all data file formats handled equally? <ins>
+
+Lets check the reading speeds of the different functions 
+```{r}
+# Use system.time() to time how fast R processes an expression. 
+# This function is especially useful for comparing the speed of two coding options.
+
+system.time(
+  read.csv("./Example_Data/winequality-red.csv", header = T)
+)
+```
+
+```{r}
+system.time({
+  read.table("./Example_Data/winequality-red.csv", header = T, sep = ",");
+  #read.delim("./Example_Data/new_winequality_df.txt", header = T, sep = "\t")
+})
+```
+
+What about writing speeds? 
+```{r}
+system.time({
+  write.csv(new_winequality_df, file = './Example_Data/new_winequality_df2.csv', row.names = FALSE)
+})
+```
+
+```{r}
+system.time({
+fwrite(new_winequality_df, file = './Example_Data/new_winequality_df3.csv') 
+})
+```
+
+---
+
+[Now lets move to Part 2](GettingData_Databases_Part2.md)
