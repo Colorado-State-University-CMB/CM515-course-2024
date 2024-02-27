@@ -1,0 +1,159 @@
+---
+title: "Getting Data and Databases - HW"
+author: "Jessica Hill"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = TRUE, warning = FALSE)
+```
+
+---
+
+## Assignment 6
+
+#### <ins> is due on **March 4th, 2024** <ins>
+
+---
+
+**Instructions:** 
+
+Please turn in the answers to this assignment as a knitted R markdown document. 
+
+- For this, don't forget to comment out all package installations after you install them! You don't want to keep installing things over and over!
+
+Answers will be graded for correctness, completeness, and how well the instructions are followed. 
+
+Turn in your assignment on canvas
+
+```  
+@ These are the learning objectives associated with each question
+```
+
+---
+
+#### QUESTION 1 (5 pts) 
+
+```
+@ Students will display that they understand how to obtain data from the SRA.
+```
+
+Go to the [SRA website](https://www.ncbi.nlm.nih.gov/sra).
+
+This time, search for an organism of your interest, along with a tissue or condition of your interest. You can further narrow it down to a type of NGS platform (i.e., RNAseq) if you'd like. 
+
+Find something that you are interested in and that seems like a good candidate. Don't get anything too big either. 
+
+In your search results, **click on your sample of interest**. You should be pulled to a new page. Here, you will see a bunch of information on your sample. Under **Runs**, go ahead and click on your sample accession number. This will pull you to the SRA browser were you can see **Metadata, Analaysis, Reads, Data Access, and FASTA/FASTQ download tabs.** 
+
+Go under FASTA/FASTQ and download the FASTQ file.
+
+Go ahead and put your FASTQ files in a new directory called seq_data. Make sure all file paths are correct!
+
+Now read your file in. 
+```{r}
+#if (!require("BiocManager", quietly = TRUE))
+#    install.packages("BiocManager")
+
+#BiocManager::install("ShortRead")
+library(ShortRead)
+
+# this is just an example of what I did. You will have to modify the path for your specific data. 
+seq1 <- readFastq("./seq_data/SRR27190540.fastq.gz", pattern=character(0))
+
+# returns sequence information 
+sread(seq1) 
+
+# returns the Phred quality score 
+quality(seq1) # Phred-scaled quality score represents how confident we are in the assignment of each base call by the sequencer.
+
+# returns the read ID and length 
+id(seq1) 
+```
+
+go ahead and read in another sample file or two from the same BioProject. You can add your additional code below. 
+```{r}
+# again these file names are just examples of what i did, you will have to modify the paths. 
+
+seq2 <- readFastq("./seq_data/SRR27190541.fastq.gz", pattern=character(0))
+```
+
+---
+
+#### QUESTION 2 (5 pts) 
+
+```
+@ Students will do some basic analysis on their downloaded FASTQ file(s)
+```
+
+Using the samples you read in above, lets try out some more of shortread's functions to interrogate the data. 
+
+```{r}
+head(seq1)
+head(seq2)
+```
+
+```{r}
+summary(seq1)
+summary(seq2)
+```
+
+```{r}
+# Performs qualtiy assessment no short reads
+
+qa_data <- qa("./seq_data/", pattern=character(0), type="fastq") # this will output some information about your data
+print(qa_data)
+```
+
+Are there any interesting things about your data files that you see?
+
+```
+put your comments here:
+
+```
+
+We are pretty limited by what we can do not together and within the scope of the class, so we wont delve deeper into the other shortread functions. But go ahead and check them out.  
+
+There are other packages like shortread including "Rqc".
+
+[Rqc](https://www.rdocumentation.org/packages/Rqc/versions/1.6.2) is an optimized tool designed for quality control and assessment of high-throughput sequencing data. It performs parallel processing of entire files and produces a report which contains a set of high-resolution graphics.
+
+
+---
+
+#### QUESTION 3 (5 pts) 
+
+```
+@ Students will gain an understanding of the different types of databases out there, how they differ, and what they offer. 
+```
+
+Pick one **primary database** that you think could be relevant to your research or interests and describe what data you could obtain from there that would help you moving forward. 
+
+Now do the same with one **secondary database** type.
+
+Finally, do the same for one **specialized database** type.
+
+```
+Place your responses here:
+
+
+```
+
+---
+
+#### QUESTION 4 (5 pts) 
+
+```
+@ Students will learn about a specific R function of their choice, and impliment an example of its usage. 
+```
+
+Choose an R function you think is interesting and would like to learn more about. Also mention the R package it can be found in. 
+
+Describe what the function does or how it can be used. 
+
+Give a functional example of its use. I want to try it too. 
+
+Also provide a link to some documentation describing this function. The **[NAME](url)** notation is used for creating a hyperlink. You can provide the link below by filling in the syntax: 
+
+[Your website here]()
