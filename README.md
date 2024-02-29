@@ -17,7 +17,7 @@
 | **April 1**    | **April 3**    | **11**     | **Issues in Reproducible Research** | **Ben Prytherch**| **12**   |
 | **April 8**    | **April 10**   | **12**     | **Microbiome**                  | **Metcalf**        | **13**   |
 | **April 15**   | **April 17**   | **13**     | **Presenting Data**             | **Dan Sloan**      | **14**   |
-| **April 22**   | **April 24**   | **14**     | **Python Notebooks**            | **Conner**         | **15**   |
+| **April 22**   | **April 24**   | **14**     | **Python Notebooks**            | **Connor**         | **15**   |
 | **April 29**   | **May 1**      | **15**     | **Portfolio**                   | **David**          | **16**   |
 | **May 6**      | **May 8**      | **16**     | **Finals Week**                 |                    | **17**   |
 
