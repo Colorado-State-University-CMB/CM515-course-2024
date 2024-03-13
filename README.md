@@ -8,10 +8,10 @@
 | February 5     | February 7     | 3      | Files and Folders               | Shady              | 4    |
 | February 12| February 14 | 4     | Tidyverse               | Meg Hemmerlein  | 5   |
 | February 19| February 21| 5      | ggplot visualization        | Alex Alon    | 6  |
+| February 26| February 28| 6      | Getting Data                | Jess Hill      | 7    |
+| March 4    | March 6    | 7      | Proteomics                  | Corey Broeckling| 8    |
+| March 11   | March 13   | 8      | SPRING BREAK                | SPRING BREAK   | 9    |
 | |  | | | | |
-| **February 26**| **February 28**| **6**      | **Getting Data**                | **Jess Hill**      | **7**    |
-| **March 4**    | **March 6**    | **7**      | **Proteomics**                  | **Corey Broeckling**| **8**    |
-| **March 11**   | **March 13**   | **8**      | **SPRING BREAK**                | **SPRING BREAK**   | **9**    |
 | **March 18**   | **March 20**   | **9**      | **Deeptools**                   | **Swygert**        | **10**   |
 | **March 25**   | **March 27**   | **10**     | **Image Analysis**              | **Melea/Rosi**     | **11**   |
 | **April 1**    | **April 3**    | **11**     | **Issues in Reproducible Research** | **Ben Prytherch**| **12**   |
