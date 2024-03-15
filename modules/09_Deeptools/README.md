@@ -108,14 +108,13 @@ Within each node is the set of resources- CPUs, memory, motherboard, cooling sys
 
 ### Video: Logging on to Alpine Web Interface
 
-[CU Research computing (video) - logging on with OnDemand](https://www.youtube.com/watch?v=cP6lfRWywk0)
+[CU Research computing (video) - logging on with Open OnDemand](https://www.youtube.com/watch?v=cP6lfRWywk0)
 
 <img src="setup/img/exclaim.svg" height="17px" width="17px"> **EXERCISE**: Let\'s connect to ALPINE using OnDemand but with changes for CSU:
 
 -   Navigate to [https://ondemand-rmacc.rc.colorado.edu](https://ondemand-rmacc.rc.colorado.edu) in a new tab
     or window
-    -   For me, I right click on the above link and select **Open Link
-        in New Window**
+    -   For me, I right click on the above link and select **Open Linkin New Window**
     -   You will be asked to select an identity provider using a
         pull-down menu. Select on the pull-down menu (it may say
         **ORCID**). Start typing **Colorado State University**. Click on
@@ -128,3 +127,33 @@ Within each node is the set of resources- CPUs, memory, motherboard, cooling sys
 
 [CU Research computing (video) - File system](https://www.youtube.com/watch?v=xfeRDnZQrJ4&t=18s)
 
+-   Go to **CLUSTERS** and select **\>\_Alpine Shell**
+
+![](setup/img/screen_shot_2023-09-14_at_8.17.52_am.png)
+
+Now we want to go to our project directory and clone the class repository.
+
+```
+cd /projects/$USER
+git clone https://github.com/Colorado-State-University-CMB/CM515-course-2024.git
+```
+
+Now let's see the files that were downloaded.
+
+Using the *Files* pull down menu, go to your /projects directory as below:
+
+<figure>
+    <img src="setup/img/OnDemand-Files.png" width="461" height="198">
+    <figcaption>Screen image caught mid-file navigation</figcaption>
+</figure>
+
+<figure>
+    <img src="setup/img/ondemand-repo-dirview.png" width="800" height="400">
+    <figcaption>You arrive at the repo</figcaption>
+</figure>
+
+<figure>
+    <img src="setup/img/repo-09Deeptools-hover-setup.png" width="833" height="300">
+    <figcaption>/projects/dcking@colostate.edu/CM515-course-2024/modules/09_Deeptools/ hovering on <b>setup</b>
+    </figcaption>
+</figure>
