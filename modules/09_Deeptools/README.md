@@ -31,10 +31,15 @@ Drawback - not hands on learning of bash/command line
 
 ---
 
-Why biologists need HPC (video)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/video-id" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[Why biologists need high performance computing (HPC) (video)](https://youtu.be/eQ660XXG9MI?si=taE-LA_GYI7DF5ue)
+
 
 Alpine Overview (DSCI510)
-CU Research computing (video) - logging on with OnDemand
-CU Research computing (video) - File system
+
+
+[CU Research computing (video) - logging on with OnDemand](https://www.youtube.com/watch?v=cP6lfRWywk0)
+
+
+[CU Research computing (video) - File system](https://www.youtube.com/watch?v=xfeRDnZQrJ4&t=18s)
+
