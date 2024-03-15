@@ -163,6 +163,7 @@ Using the *Files* pull down menu, go to your /projects directory as below:
     <figcaption>Screen image caught mid-file navigation</figcaption>  
 </figure>
 <br>
+<br>
 <figure>
     <img src="setup/img/ondemand-repo-dirview.png" width="800" height="311">
     <figcaption>File browser showing <i>/projects/dcking@colostate.edu/CM515-course-2024</i></figcaption>
