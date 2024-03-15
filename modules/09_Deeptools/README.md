@@ -74,7 +74,7 @@ How do these supercomputer systems compare to our laptops?
 **A *cluster* of nodes**
 
 <figure>
-    <img src="setup/img/cluster.png" alt="cluster diagram" width="400" height="297">
+    <img src="setup/img/cluster.png" alt="cluster diagram" width="534" height="395">
     <figcaption>https://www.hpc2n.umu.se/documentation/guides/beginner-guide</figcaption>
 </figure>
 
