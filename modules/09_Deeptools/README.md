@@ -71,6 +71,17 @@ How do these supercomputer systems compare to our laptops?
 -   Cores relates to how many CPUs (Central Processing Units) the
     computer has
 
+
+**A compute node (blade)**
+
+![](setup/img/ACTblade-side.png "Compute node (blade)")
+
+<figure>
+    <img src="setup/img/ACTblade-side.png"
+         alt="Albuquerque, New Mexico">
+    <figcaption>A single track trail outside of Albuquerque, New Mexico.</figcaption>
+</figure>
+
 :!: **NOTE:** *All* 500 of the top 500 Supercomputer systems run LINUX
 or LINUX-based operating systems.
 
