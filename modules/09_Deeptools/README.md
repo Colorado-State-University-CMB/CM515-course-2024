@@ -160,16 +160,27 @@ Using the *Files* pull down menu, go to your /projects directory as below:
 
 <figure>
     <img src="setup/img/OnDemand-Files.png" width="461" height="198">
-    <figcaption>Screen image caught mid-file navigation</figcaption>
+    <figcaption>Screen image caught mid-file navigation</figcaption>  
 </figure>
-
+<br>
 <figure>
-    <img src="setup/img/ondemand-repo-dirview.png" width="800" height="400">
-    <figcaption>You arrive at the repo</figcaption>
+    <img src="setup/img/ondemand-repo-dirview.png" width="800" height="311">
+    <figcaption>File browser showing <i>/projects/dcking@colostate.edu/CM515-course-2024</i></figcaption>
 </figure>
-
+<br>
 <figure>
     <img src="setup/img/repo-09Deeptools-hover-setup.png" width="833" height="300">
-    <figcaption>/projects/dcking@colostate.edu/CM515-course-2024/modules/09_Deeptools/ hovering on <b>setup</b>
+    <figcaption>File browser showing <i>/projects/dcking@colostate.edu/CM515-course-2024/modules/09_Deeptools</i> hovering on <b><i>setup</i></b>
     </figcaption>
 </figure>
+
+### Time to run JupyterLab in a job
+
+Jupyterlab is like RStudio- it is an integrated environment with many different tools, especially the ability to run Jupyter notebooks, which are in turn like RMarkdown. They are documents that can run embedded code.
+
+#### screenshot Interactive Apps -> Servers -> Jupyter Session (Presets)
+
+
+#### screenshot Jupyter launch page
+
+<img src="setup/img/JupyterSessionLaunchScreen.png">
