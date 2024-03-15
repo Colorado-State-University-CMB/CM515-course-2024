@@ -63,27 +63,27 @@ How do these supercomputer systems compare to our laptops?
   |**Typical laptop**                 | **Alpine Supercomputer**  |  **FRONTIER Supercomputer**|
   |-----------------------------------|---------------------------|---------------------------|
   |0.1 - 10 teraFLOPS                 |450 teraFLOPS              |1,102,000 teraFLOPS        |
-  |1 - 4 cores organized onto 1 node  |>15,500 cores on 458 nodes |8,730,112 cores |
+  |1 - 4 cores organized onto 1 node  |>15,500 cores on 458 nodes |    8,730,112 cores        |
   
 
--   FLOPS is a measure of how many floating point operations a computer
+-   FLOPS: a measure of how many floating point operations a computer
     can do per second. So it\'s a measure of calculations a second
--   Cores relates to how many CPUs (Central Processing Units) the
-    computer has
+-   Node: Like a miniature computer within the cluster
+-   Core: Independent processing unit on a CPU (central processing unit)
 
+**A *cluster* of nodes**
+
+<figure>
+    <img src="setup/img/cluster.png" alt="cluster diagram" width="400" height="297">
+    <figcaption>https://www.hpc2n.umu.se/documentation/guides/beginner-guide</figcaption>
+</figure>
 
 **A compute node (blade)**
 
-![](setup/img/ACTblade-side.png "Compute node (blade)")
-
 <figure>
-    <img src="setup/img/ACTblade-side.png"
-         alt="Albuquerque, New Mexico">
-    <figcaption>A single track trail outside of Albuquerque, New Mexico.</figcaption>
+    <img src="setup/img/ACTblade-side.png" alt="Compute node (blade)">
+    <figcaption>ACT blade from https://www.advancedclustering.com</figcaption>
 </figure>
-
-:!: **NOTE:** *All* 500 of the top 500 Supercomputer systems run LINUX
-or LINUX-based operating systems.
 
 ------------------------------------------------------------------------
 
