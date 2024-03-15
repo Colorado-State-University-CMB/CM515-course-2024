@@ -181,7 +181,24 @@ Jupyterlab is like RStudio- it is an integrated environment with many different 
 
 #### screenshot Interactive Apps -> Servers -> Jupyter Session (Presets)
 
+<img src="setup/img/InteractiveAppsHoverJupyter.png">
 
 #### screenshot Jupyter launch page
 
 <img src="setup/img/JupyterSessionLaunchScreen.png">
+
+Hit Launch
+
+#### wait for job to start
+
+#### launch jupyterlab
+
+#### explore
+
+#### navigate to projects / repo / modules / 09 / setup
+
+#### open conda config notebook
+
+Run code cells.
+
+#### open deeptools setup job script
