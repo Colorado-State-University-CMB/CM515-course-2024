@@ -78,6 +78,8 @@ How do these supercomputer systems compare to our laptops?
     <figcaption>https://www.hpc2n.umu.se/documentation/guides/beginner-guide</figcaption>
 </figure>
 
+Within each node is the set of resources- CPUs, memory, motherboard, cooling system.
+
 **A compute node (blade)**
 
 <figure>
@@ -107,6 +109,20 @@ How do these supercomputer systems compare to our laptops?
 ### Video: Logging on to Alpine Web Interface
 
 [CU Research computing (video) - logging on with OnDemand](https://www.youtube.com/watch?v=cP6lfRWywk0)
+
+<img src="setup/img/exclaim.svg" height="17px" width="17px"> **EXERCISE**: Let\'s connect to ALPINE using OnDemand but with changes for CSU:
+
+-   Navigate to [https://ondemand-rmacc.rc.colorado.edu](https://ondemand-rmacc.rc.colorado.edu) in a new tab
+    or window
+    -   For me, I right click on the above link and select **Open Link
+        in New Window**
+    -   You will be asked to select an identity provider using a
+        pull-down menu. Select on the pull-down menu (it may say
+        **ORCID**). Start typing **Colorado State University**. Click on
+        **Remember** and log in. It should look like this
+
+![](setup/img/screen_shot_2023-08-28_at_12.37.17_pm.png)
+
 
 ### Video: Alpine File Organization
 
