@@ -11,3 +11,5 @@ This week we will delve into more tools aimed at visualizing data. Our outline f
 - Use [R tools to draw graphics](https://dbsloan.github.io/CM515/SP24/r_figure_drawing/) and figures based on input data files
 
 - Use [circos to generate circular representations of genomic datasets](https://dbsloan.github.io/CM515/SP24/circos/)
+
+- The R Markdown files and related materials for the above sites are available in this GitHub repo: https://github.com/dbsloan/dbsloan.github.io/tree/master/CM515/SP24 
