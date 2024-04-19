@@ -6,7 +6,7 @@ Select the GitHub option from the lefthand tab of the popup. You will be asked t
 
 Paste in https://github.com/Colorado-State-University-CMB/CM515-course-2024/ 
 
-Select search and then scroll to the bottom of the list of notebooks and select Intro_Python_iqcmb.ipynb.
+Select search and then scroll to the bottom of the list of notebooks and select Module14.ipynb.
 
 Once you have the file open, select the file tab in the top left corner and select "Save Copy in Drive" from the dropdown menu.
 
