@@ -15,9 +15,9 @@
 | March 18   | March 20   | 9      | Deeptools                  | Swygert     | 10   |
 | March 25  | March 27 | 10    | Image Analysis             | Melea/Rosi    | 11  |
 | April 1    | April 3  | 11    | Issues in Reproducible Research | Ben Prytherch| 12   |
-| **April 8**    | **April 10**   | **12**     | **Microbiome**                  | **Metcalf**        | **13**   |
-| **April 15**   | **April 17**   | **13**     | **Presenting Data**             | **Dan Sloan**      | **14**   |
-| **April 22**   | **April 24**   | **14**     | **Python Notebooks**            | **Connor**         | **15**   |
-| **April 29**   | **May 1**      | **15**     | **Portfolio**                   | **David**          | **16**   |
+| April 8    | April 10   | 12    | Microbiome                 | Metcalf       | 13  |
+| April 15   | April 17   | 13     | Presenting Data           | Dan Sloan      | 14 |
+| April 22   | April 24   | 14     | Python Notebooks           | Connor         | 15   |
+| **April 29**   | **May 1**      | **15**     | **Github/Git Portfolio**                   | **David**          | **16**   |
 | **May 6**      | **May 8**      | **16**     | **Finals Week**                 |                    | **17**   |
 
