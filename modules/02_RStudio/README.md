@@ -10,7 +10,7 @@
 
 **Instructor:** Erin Osborne Nishimura, PhD
 
-**Dates:** Monday January 29, 2024 & Wednesday January 31, 2024
+**Dates:** Monday February 3, 2025 & Wednesday February 5, 2025
 
 ## Introduction to Quantitative Cell and Molecular Biology! - R & R Studio Module
 
@@ -27,8 +27,7 @@ In this first module, we will explore the basics of **R**. What is R?
 
   * My background & my journey. How did I get here?
     * [Erin Osborne Nishimura website](https://onishlab.colostate.edu/home-page/erin-osborne-nishimura/)
-    * You can call me "Erin", "Dr. Nishimura"
-    * she/her pronouns
+    * You can call me "Erin", "Dr. Nishimura". (she/her)
     * Full disclaimer - I do not have a computer science background
   
 
